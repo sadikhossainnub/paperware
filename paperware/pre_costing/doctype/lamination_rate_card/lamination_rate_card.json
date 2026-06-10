@@ -1,0 +1,77 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-05-31 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "lamination_type",
+        "rate_per_sq_inch",
+        "min_charge",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "LRC-.YYYY.-",
+            "reqd": 1,
+            "set_only_once": 1
+        },
+        {
+            "fieldname": "lamination_type",
+            "fieldtype": "Select",
+            "label": "Lamination Type",
+            "options": "Gloss\nMatte\nSoft Touch\nHigh Gloss\nSatin",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "rate_per_sq_inch",
+            "fieldtype": "Currency",
+            "label": "Rate per Square Inch",
+            "precision": 4,
+            "reqd": 1
+        },
+        {
+            "fieldname": "min_charge",
+            "fieldtype": "Currency",
+            "label": "Minimum Charge",
+            "precision": 2,
+            "description": "Minimum charge for lamination"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes"
+        }
+    ],
+    "links": [],
+    "modified": "2026-05-31 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "Lamination Rate Card",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 0,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "Desc",
+    "track_changes": 1
+}

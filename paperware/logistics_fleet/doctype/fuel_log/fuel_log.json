@@ -1,0 +1,76 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "FUEL-.#####",
+    "creation": "2026-01-24 11:13:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle",
+        "date",
+        "liters",
+        "cost",
+        "odometer",
+        "mileage"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "label": "Vehicle",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "label": "Date"
+        },
+        {
+            "fieldname": "liters",
+            "fieldtype": "Float",
+            "label": "Fuel (Liters)"
+        },
+        {
+            "fieldname": "cost",
+            "fieldtype": "Currency",
+            "label": "Cost"
+        },
+        {
+            "fieldname": "odometer",
+            "fieldtype": "Float",
+            "label": "Odometer Reading"
+        },
+        {
+            "fieldname": "mileage",
+            "fieldtype": "Float",
+            "label": "Mileage (KM/L)",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "modified": "2026-01-24 11:13:00.000000",
+    "modified_by": "Administrator",
+    "module": "Logistics Fleet",
+    "name": "Fuel Log",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

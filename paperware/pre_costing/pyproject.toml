@@ -1,0 +1,12 @@
+[project]
+name = "paperware-pre-costing"
+authors = [
+    { name = "Abu Sayed", email = "sayedtkg@gmail.com" }
+]
+description = "Pre-costing system for paper and packaging products"
+version = "1.0.0"
+license = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/paperware/paperware"
+Documentation = "https://github.com/paperware/paperware/wiki"

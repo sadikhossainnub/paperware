@@ -1,0 +1,796 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-05-31 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "customer",
+        "costing_date",
+        "company",
+        "column_break_1",
+        "status",
+        "costing_reference",
+        "section_product",
+        "item_type",
+        "fg_item",
+        "item_name",
+        "target_qty",
+        "column_break_2",
+        "customer_target_price",
+        "previous_sale_rate",
+        "section_paper",
+        "paper_item",
+        "paper_gsm",
+        "paper_rate_per_sheet",
+        "chaat_percent",
+        "chaat_rate",
+        "net_paper_rate",
+        "section_cup_dims",
+        "cup_top_diameter_mm",
+        "cup_bottom_diameter_mm",
+        "cup_height_mm",
+        "pasting_gap_mm",
+        "cup_wall_type",
+        "double_wall_item",
+        "section_box_dims",
+        "box_length_mm",
+        "box_width_mm",
+        "box_height_mm",
+        "flap_height_mm",
+        "glue_tab_mm",
+        "section_bag_dims",
+        "bag_width_mm",
+        "bag_height_mm",
+        "bag_gusset_mm",
+        "bag_bottom_mm",
+        "bag_handle_type",
+        "section_sheet_dims",
+        "item_width_mm",
+        "item_height_mm",
+        "bleed_mm",
+        "fold_type",
+        "section_lid_dims",
+        "lid_top_diameter_mm",
+        "lid_height_mm",
+        "lid_flange_mm",
+        "section_common_sheet",
+        "sheet_width_mm",
+        "sheet_height_mm",
+        "gripper_margin_mm",
+        "grain_direction",
+        "column_break_3",
+        "section_geometry",
+        "blank_width_mm",
+        "blank_height_mm",
+        "blank_area_sq_mm",
+        "ups_per_sheet",
+        "waste_percent",
+        "sheets_required",
+        "geometry_html",
+        "section_printing",
+        "printing_required",
+        "printing_machine",
+        "print_colors",
+        "print_color_type",
+        "plate_cost",
+        "printing_rate_card",
+        "print_cost_per_1000",
+        "total_printing_cost",
+        "section_post_press",
+        "lamination_required",
+        "lamination_type",
+        "total_lamination_cost",
+        "die_cutting_required",
+        "die_knife_type",
+        "die_making_cost",
+        "total_die_cutting_cost",
+        "foaming_required",
+        "total_foaming_cost",
+        "section_additional_charges",
+        "additional_charges",
+        "total_additional_charges",
+        "section_packing",
+        "packing_cost",
+        "poly_cost",
+        "delivery_cost",
+        "section_cost_summary",
+        "total_paper_cost",
+        "total_production_cost",
+        "cost_per_unit",
+        "conversion_cost",
+        "profit_markup",
+        "selling_rate",
+        "cost_summary_html",
+        "section_multi_qty",
+        "multi_qty_comparison",
+        "section_bom",
+        "with_operations",
+        "bom",
+        "quotation",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "PCO-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "costing_date",
+            "fieldtype": "Date",
+            "label": "Costing Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nSubmitted\nCancelled"
+        },
+        {
+            "fieldname": "costing_reference",
+            "fieldtype": "Data",
+            "label": "Costing Reference"
+        },
+        {
+            "fieldname": "section_product",
+            "fieldtype": "Section Break",
+            "label": "Product Details"
+        },
+        {
+            "fieldname": "item_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Item Type",
+            "options": "Paper Cup\nCup Holder\nCup Jacket\nFrench Fry Cone\nPlastic Lid\nMeal Box\nOuter Box\nTissue Box\nPaper Bag\nTable Paper Matt\nPaper Leaflet\nPaper Sticker\nBusiness Card\nHand Tag\nMemo Book\nEnevolve",
+            "reqd": 1
+        },
+        {
+            "fieldname": "fg_item",
+            "fieldtype": "Link",
+            "label": "Finished Goods Item",
+            "options": "Item",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "fg_item.item_name",
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "label": "Item Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "target_qty",
+            "fieldtype": "Int",
+            "label": "Target Quantity",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "customer_target_price",
+            "fieldtype": "Currency",
+            "label": "Customer Target Price"
+        },
+        {
+            "fieldname": "previous_sale_rate",
+            "fieldtype": "Currency",
+            "label": "Previous Sale Rate",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_paper",
+            "fieldtype": "Section Break",
+            "label": "Paper & Raw Material"
+        },
+        {
+            "fieldname": "paper_item",
+            "fieldtype": "Link",
+            "label": "Paper Item",
+            "options": "Item"
+        },
+        {
+            "fetch_from": "paper_item.paper_gsm",
+            "fieldname": "paper_gsm",
+            "fieldtype": "Data",
+            "label": "Paper GSM",
+            "read_only": 1
+        },
+        {
+            "fieldname": "paper_rate_per_sheet",
+            "fieldtype": "Currency",
+            "label": "Paper Rate per Sheet"
+        },
+        {
+            "default": "5",
+            "fieldname": "chaat_percent",
+            "fieldtype": "Percent",
+            "label": "Chaat / Waste %"
+        },
+        {
+            "fieldname": "chaat_rate",
+            "fieldtype": "Currency",
+            "label": "Chaat Resale Rate"
+        },
+        {
+            "fieldname": "net_paper_rate",
+            "fieldtype": "Currency",
+            "label": "Net Paper Rate",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_cup_dims",
+            "fieldtype": "Section Break",
+            "label": "Cup / Cone Dimensions"
+        },
+        {
+            "fieldname": "cup_top_diameter_mm",
+            "fieldtype": "Float",
+            "label": "Top Diameter (mm)"
+        },
+        {
+            "fieldname": "cup_bottom_diameter_mm",
+            "fieldtype": "Float",
+            "label": "Bottom Diameter (mm)"
+        },
+        {
+            "fieldname": "cup_height_mm",
+            "fieldtype": "Float",
+            "label": "Height (mm)"
+        },
+        {
+            "default": "3",
+            "fieldname": "pasting_gap_mm",
+            "fieldtype": "Float",
+            "label": "Pasting Gap (mm)"
+        },
+        {
+            "fieldname": "cup_wall_type",
+            "fieldtype": "Select",
+            "label": "Cup Wall Type",
+            "options": "Single Wall\nDouble Wall"
+        },
+        {
+            "depends_on": "eval:doc.cup_wall_type == \"Double Wall\"",
+            "fieldname": "double_wall_item",
+            "fieldtype": "Link",
+            "label": "Double Wall Item",
+            "options": "Item"
+        },
+        {
+            "fieldname": "section_box_dims",
+            "fieldtype": "Section Break",
+            "label": "Box Dimensions"
+        },
+        {
+            "fieldname": "box_length_mm",
+            "fieldtype": "Float",
+            "label": "Length (mm)"
+        },
+        {
+            "fieldname": "box_width_mm",
+            "fieldtype": "Float",
+            "label": "Width (mm)"
+        },
+        {
+            "fieldname": "box_height_mm",
+            "fieldtype": "Float",
+            "label": "Height (mm)"
+        },
+        {
+            "fieldname": "flap_height_mm",
+            "fieldtype": "Float",
+            "label": "Flap Height (mm)"
+        },
+        {
+            "default": "15",
+            "fieldname": "glue_tab_mm",
+            "fieldtype": "Float",
+            "label": "Glue Tab (mm)"
+        },
+        {
+            "fieldname": "section_bag_dims",
+            "fieldtype": "Section Break",
+            "label": "Bag Dimensions"
+        },
+        {
+            "fieldname": "bag_width_mm",
+            "fieldtype": "Float",
+            "label": "Width (mm)"
+        },
+        {
+            "fieldname": "bag_height_mm",
+            "fieldtype": "Float",
+            "label": "Height (mm)"
+        },
+        {
+            "fieldname": "bag_gusset_mm",
+            "fieldtype": "Float",
+            "label": "Gusset Depth (mm)"
+        },
+        {
+            "fieldname": "bag_bottom_mm",
+            "fieldtype": "Float",
+            "label": "Bottom Fold (mm)"
+        },
+        {
+            "fieldname": "bag_handle_type",
+            "fieldtype": "Select",
+            "label": "Handle Type",
+            "options": "Rope\nDie-cut\nRibbon\nNone"
+        },
+        {
+            "fieldname": "section_sheet_dims",
+            "fieldtype": "Section Break",
+            "label": "Sheet / Flat Dimensions"
+        },
+        {
+            "fieldname": "item_width_mm",
+            "fieldtype": "Float",
+            "label": "Item Width (mm)"
+        },
+        {
+            "fieldname": "item_height_mm",
+            "fieldtype": "Float",
+            "label": "Item Height (mm)"
+        },
+        {
+            "default": "3",
+            "fieldname": "bleed_mm",
+            "fieldtype": "Float",
+            "label": "Bleed (mm)"
+        },
+        {
+            "fieldname": "fold_type",
+            "fieldtype": "Select",
+            "label": "Fold Type",
+            "options": "No Fold\nBi-fold\nTri-fold\nZ-fold"
+        },
+        {
+            "fieldname": "section_lid_dims",
+            "fieldtype": "Section Break",
+            "label": "Lid Dimensions"
+        },
+        {
+            "fieldname": "lid_top_diameter_mm",
+            "fieldtype": "Float",
+            "label": "Top Diameter (mm)"
+        },
+        {
+            "fieldname": "lid_height_mm",
+            "fieldtype": "Float",
+            "label": "Rim Height (mm)"
+        },
+        {
+            "fieldname": "lid_flange_mm",
+            "fieldtype": "Float",
+            "label": "Flange Width (mm)"
+        },
+        {
+            "fieldname": "section_common_sheet",
+            "fieldtype": "Section Break",
+            "label": "Common Sheet Settings"
+        },
+        {
+            "fieldname": "sheet_width_mm",
+            "fieldtype": "Float",
+            "label": "Sheet Width (mm)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "sheet_height_mm",
+            "fieldtype": "Float",
+            "label": "Sheet Height (mm)",
+            "reqd": 1
+        },
+        {
+            "default": "12",
+            "fieldname": "gripper_margin_mm",
+            "fieldtype": "Float",
+            "label": "Gripper Margin (mm)"
+        },
+        {
+            "fieldname": "grain_direction",
+            "fieldtype": "Select",
+            "label": "Grain Direction",
+            "options": "Long Grain\nShort Grain"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "section_geometry",
+            "fieldtype": "Section Break",
+            "label": "Geometry Results"
+        },
+        {
+            "fieldname": "blank_width_mm",
+            "fieldtype": "Float",
+            "label": "Blank Width (mm)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "blank_height_mm",
+            "fieldtype": "Float",
+            "label": "Blank Height (mm)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "blank_area_sq_mm",
+            "fieldtype": "Float",
+            "label": "Blank Area (sq mm)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "ups_per_sheet",
+            "fieldtype": "Int",
+            "label": "Ups per Sheet",
+            "read_only": 1
+        },
+        {
+            "fieldname": "waste_percent",
+            "fieldtype": "Percent",
+            "label": "Waste %",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sheets_required",
+            "fieldtype": "Int",
+            "label": "Sheets Required",
+            "read_only": 1
+        },
+        {
+            "fieldname": "geometry_html",
+            "fieldtype": "HTML",
+            "label": "Geometry Preview"
+        },
+        {
+            "fieldname": "section_printing",
+            "fieldtype": "Section Break",
+            "label": "Printing"
+        },
+        {
+            "default": "0",
+            "fieldname": "printing_required",
+            "fieldtype": "Check",
+            "label": "Printing Required"
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "printing_machine",
+            "fieldtype": "Link",
+            "label": "Printing Machine",
+            "options": "Workstation"
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "print_colors",
+            "fieldtype": "Select",
+            "label": "Print Colors",
+            "options": "1 Colour\n2 Colour\n3 Colour\n4 Colour\n4+1"
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "print_color_type",
+            "fieldtype": "Select",
+            "label": "Color Type",
+            "options": "Normal\nSolid"
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "plate_cost",
+            "fieldtype": "Currency",
+            "label": "Plate Cost"
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "printing_rate_card",
+            "fieldtype": "Link",
+            "label": "Printing Rate Card",
+            "options": "Printing Rate Card",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "print_cost_per_1000",
+            "fieldtype": "Currency",
+            "label": "Print Cost per 1000",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.printing_required == 1",
+            "fieldname": "total_printing_cost",
+            "fieldtype": "Currency",
+            "label": "Total Printing Cost",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_post_press",
+            "fieldtype": "Section Break",
+            "label": "Post-Press Charges"
+        },
+        {
+            "default": "0",
+            "fieldname": "lamination_required",
+            "fieldtype": "Check",
+            "label": "Lamination Required"
+        },
+        {
+            "depends_on": "eval:doc.lamination_required == 1",
+            "fieldname": "lamination_type",
+            "fieldtype": "Link",
+            "label": "Lamination Type",
+            "options": "Lamination Rate Card"
+        },
+        {
+            "depends_on": "eval:doc.lamination_required == 1",
+            "fieldname": "total_lamination_cost",
+            "fieldtype": "Currency",
+            "label": "Total Lamination Cost",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "die_cutting_required",
+            "fieldtype": "Check",
+            "label": "Die Cutting Required"
+        },
+        {
+            "depends_on": "eval:doc.die_cutting_required == 1",
+            "fieldname": "die_knife_type",
+            "fieldtype": "Select",
+            "label": "Die Knife Type",
+            "options": "Single Knife\nDouble Knife"
+        },
+        {
+            "depends_on": "eval:doc.die_cutting_required == 1",
+            "fieldname": "die_making_cost",
+            "fieldtype": "Currency",
+            "label": "Die Making Cost"
+        },
+        {
+            "depends_on": "eval:doc.die_cutting_required == 1",
+            "fieldname": "total_die_cutting_cost",
+            "fieldtype": "Currency",
+            "label": "Total Die Cutting Cost",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "foaming_required",
+            "fieldtype": "Check",
+            "label": "Foaming Required"
+        },
+        {
+            "depends_on": "eval:doc.foaming_required == 1",
+            "fieldname": "total_foaming_cost",
+            "fieldtype": "Currency",
+            "label": "Total Foaming Cost",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_additional_charges",
+            "fieldtype": "Section Break",
+            "label": "Additional Charges"
+        },
+        {
+            "fieldname": "additional_charges",
+            "fieldtype": "Table",
+            "label": "Additional Charges",
+            "options": "PC Charge Row"
+        },
+        {
+            "fieldname": "total_additional_charges",
+            "fieldtype": "Currency",
+            "label": "Total Additional Charges",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_packing",
+            "fieldtype": "Section Break",
+            "label": "Packing & Delivery"
+        },
+        {
+            "fieldname": "packing_cost",
+            "fieldtype": "Currency",
+            "label": "Packing Cost"
+        },
+        {
+            "fieldname": "poly_cost",
+            "fieldtype": "Currency",
+            "label": "Poly Cost"
+        },
+        {
+            "fieldname": "delivery_cost",
+            "fieldtype": "Currency",
+            "label": "Delivery Cost"
+        },
+        {
+            "fieldname": "section_cost_summary",
+            "fieldtype": "Section Break",
+            "label": "Cost Summary"
+        },
+        {
+            "fieldname": "total_paper_cost",
+            "fieldtype": "Currency",
+            "label": "Total Paper Cost",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_production_cost",
+            "fieldtype": "Currency",
+            "label": "Total Production Cost",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cost_per_unit",
+            "fieldtype": "Currency",
+            "label": "Cost per Unit",
+            "read_only": 1
+        },
+        {
+            "fieldname": "conversion_cost",
+            "fieldtype": "Currency",
+            "label": "Conversion Cost",
+            "read_only": 1
+        },
+        {
+            "default": "25",
+            "fieldname": "profit_markup",
+            "fieldtype": "Percent",
+            "label": "Profit Markup (%)"
+        },
+        {
+            "fieldname": "selling_rate",
+            "fieldtype": "Currency",
+            "label": "Selling Rate",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cost_summary_html",
+            "fieldtype": "HTML",
+            "label": "Cost Summary"
+        },
+        {
+            "fieldname": "section_multi_qty",
+            "fieldtype": "Section Break",
+            "label": "Multi-Qty Comparison"
+        },
+        {
+            "fieldname": "multi_qty_comparison",
+            "fieldtype": "Table",
+            "label": "Multi-Qty Comparison",
+            "options": "PC Multi Qty Row"
+        },
+        {
+            "fieldname": "section_bom",
+            "fieldtype": "Section Break",
+            "label": "BOM & Quotation"
+        },
+        {
+            "default": "0",
+            "fieldname": "with_operations",
+            "fieldtype": "Check",
+            "label": "With Operations"
+        },
+        {
+            "fieldname": "bom",
+            "fieldtype": "Link",
+            "label": "Generated BOM",
+            "options": "BOM",
+            "read_only": 1
+        },
+        {
+            "fieldname": "quotation",
+            "fieldtype": "Link",
+            "label": "Generated Quotation",
+            "options": "Quotation",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Pre Costing Order",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2026-05-31 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "Pre Costing Order",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing User",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

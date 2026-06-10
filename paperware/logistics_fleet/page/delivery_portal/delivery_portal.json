@@ -1,0 +1,20 @@
+{
+    "content": null,
+    "creation": "2026-01-24 11:20:00.000000",
+    "docstatus": 0,
+    "doctype": "Page",
+    "idx": 0,
+    "modified": "2026-01-24 11:20:00.000000",
+    "modified_by": "Administrator",
+    "module": "Logistics Fleet",
+    "name": "delivery-portal",
+    "owner": "Administrator",
+    "page_name": "delivery-portal",
+    "roles": [
+        {
+            "role": "System Manager"
+        }
+    ],
+    "standard": "Yes",
+    "title": "Delivery Team Portal"
+}

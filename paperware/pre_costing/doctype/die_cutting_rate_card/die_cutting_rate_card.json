@@ -1,0 +1,90 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-05-31 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "knife_type",
+        "min_qty",
+        "max_qty",
+        "rate_per_1000",
+        "min_charge",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "DRC-.YYYY.-",
+            "reqd": 1,
+            "set_only_once": 1
+        },
+        {
+            "fieldname": "knife_type",
+            "fieldtype": "Select",
+            "label": "Knife Type",
+            "options": "Standard\nComplex\nCustom\nSimple",
+            "reqd": 1
+        },
+        {
+            "fieldname": "min_qty",
+            "fieldtype": "Int",
+            "label": "Minimum Quantity (sheets)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "max_qty",
+            "fieldtype": "Int",
+            "label": "Maximum Quantity (sheets)",
+            "description": "Leave blank for unlimited"
+        },
+        {
+            "fieldname": "rate_per_1000",
+            "fieldtype": "Currency",
+            "label": "Rate per 1000 Sheets",
+            "precision": 2,
+            "reqd": 1
+        },
+        {
+            "fieldname": "min_charge",
+            "fieldtype": "Currency",
+            "label": "Minimum Charge",
+            "precision": 2,
+            "description": "Minimum charge for die cutting"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes"
+        }
+    ],
+    "links": [],
+    "modified": "2026-05-31 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "Die Cutting Rate Card",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 0,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "Desc",
+    "track_changes": 1
+}

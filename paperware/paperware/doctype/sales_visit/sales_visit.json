@@ -1,0 +1,267 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-01-22 06:40:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "customer_or_lead",
+        "client_name",
+        "lead",
+        "create_new_lead",
+        "new_lead_name",
+        "new_lead_phone",
+        "location_name",
+        "column_break_1",
+        "visit_date",
+        "visit_time",
+        "is_live_visit",
+        "section_break_2",
+        "purpose",
+        "purpose_label",
+        "notes",
+        "details",
+        "section_break_3",
+        "photos",
+        "section_break_4",
+        "gps_location",
+        "column_break_2",
+        "status",
+        "section_break_logs",
+        "visit_logs",
+        "created_by",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "SV-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "default": "Customer",
+            "fieldname": "customer_or_lead",
+            "fieldtype": "Select",
+            "label": "Visit Target",
+            "options": "Customer\nLead",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:doc.customer_or_lead=='Customer'",
+            "fieldname": "client_name",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Client Name",
+            "options": "Customer",
+            "mandatory_depends_on": "eval:doc.customer_or_lead=='Customer'"
+        },
+        {
+            "depends_on": "eval:doc.customer_or_lead=='Lead' && !doc.create_new_lead",
+            "fieldname": "lead",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Lead",
+            "options": "Lead",
+            "mandatory_depends_on": "eval:doc.customer_or_lead=='Lead' && !doc.create_new_lead"
+        },
+        {
+            "depends_on": "eval:doc.customer_or_lead=='Lead'",
+            "fieldname": "create_new_lead",
+            "fieldtype": "Check",
+            "label": "Is this a New Lead?"
+        },
+        {
+            "depends_on": "eval:doc.customer_or_lead=='Lead' && doc.create_new_lead",
+            "fieldname": "new_lead_name",
+            "fieldtype": "Data",
+            "label": "New Lead Name",
+            "mandatory_depends_on": "eval:doc.customer_or_lead=='Lead' && doc.create_new_lead"
+        },
+        {
+            "depends_on": "eval:doc.customer_or_lead=='Lead' && doc.create_new_lead",
+            "fieldname": "new_lead_phone",
+            "fieldtype": "Data",
+            "label": "New Lead Phone"
+        },
+        {
+            "fieldname": "location_name",
+            "fieldtype": "Data",
+            "label": "Location Name"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "visit_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Visit Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "visit_time",
+            "fieldtype": "Time",
+            "label": "Visit Time"
+        },
+        {
+            "fieldname": "is_live_visit",
+            "fieldtype": "Check",
+            "label": "Is Live Visit"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Visit Details"
+        },
+        {
+            "fieldname": "purpose",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Purpose",
+            "options": "\nNew Lead\nQuotation\nOrder Collection\nPayment\nRelationship",
+            "reqd": 1
+        },
+        {
+            "fieldname": "purpose_label",
+            "fieldtype": "Data",
+            "label": "Purpose Label (Bengali)",
+            "translatable": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text Editor",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "details",
+            "fieldtype": "Small Text",
+            "label": "Details"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Photos"
+        },
+        {
+            "fieldname": "photos",
+            "fieldtype": "Attach Image",
+            "label": "Photos"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Additional Information"
+        },
+        {
+            "fieldname": "gps_location",
+            "fieldtype": "Data",
+            "label": "GPS Location"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Scheduled\nCompleted\nCancelled",
+            "reqd": 1,
+            "default": "Scheduled"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Sales Visit",
+            "print_hide": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_logs",
+            "fieldtype": "Section Break",
+            "label": "Activity Logs"
+        },
+        {
+            "fieldname": "visit_logs",
+            "fieldtype": "Table",
+            "label": "Visit Logs",
+            "options": "Sales Visit Log"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2026-01-22 06:40:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Sales Visit",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "client_name",
+    "track_changes": 1
+}

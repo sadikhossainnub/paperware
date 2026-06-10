@@ -1,0 +1,122 @@
+<div class="hr-dashboard-wrapper">
+    <!-- Header Section -->
+    <div class="dashboard-header d-flex justify-content-between align-items-center mb-4">
+        <div class="title-area">
+            <h1 class="h2 mb-0">HR Commander Dashboard</h1>
+            <p class="text-muted small">Real-time Employee Status & Analytics</p>
+        </div>
+        <div class="status-indicator d-flex align-items-center">
+            <span class="pulse-icon mr-2"></span>
+            <span class="live-status">LIVE MONITORING</span>
+            <button class="btn btn-primary btn-sm ml-3" id="refresh-dashboard">
+                <i class="fa fa-refresh mr-1"></i> Refresh
+            </button>
+        </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="row kpi-section">
+        <div class="col-md-2-4">
+            <div class="kpi-card glass-card purple">
+                <div class="kpi-icon"><i class="fa fa-users"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-value" id="total-employees">0</div>
+                    <div class="kpi-label">Total Staff</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2-4">
+            <div class="kpi-card glass-card green">
+                <div class="kpi-icon"><i class="fa fa-check-circle"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-value" id="present-today">0</div>
+                    <div class="kpi-label">Present</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2-4">
+            <div class="kpi-card glass-card red">
+                <div class="kpi-icon"><i class="fa fa-clock-o"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-value" id="late-today">0</div>
+                    <div class="kpi-label">Late Entries</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2-4">
+            <div class="kpi-card glass-card gold">
+                <div class="kpi-icon"><i class="fa fa-user-times"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-value" id="absent-today">0</div>
+                    <div class="kpi-label">Absent Today</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2-4">
+            <div class="kpi-card glass-card cyan">
+                <div class="kpi-icon"><i class="fa fa-plane"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-value" id="on-leave">0</div>
+                    <div class="kpi-label">On Leave</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Live Map Monitoring -->
+        <div class="col-lg-8">
+            <div class="glass-card map-container-box mb-4">
+                <div class="card-header-modern d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Live Employee Monitoring</h5>
+                    <div class="map-controls">
+                        <span class="badge badge-success">GPS Active</span>
+                    </div>
+                </div>
+                <div id="employee-map"
+                    style="height: 450px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);"></div>
+            </div>
+
+            <!-- Attendance Trend Chart -->
+            <div class="glass-card trend-container">
+                <div class="card-header-modern mb-3">
+                    <h5 class="mb-0">Weekly Presence Trend</h5>
+                </div>
+                <div id="attendance-trend-chart" style="height: 250px;"></div>
+            </div>
+        </div>
+
+        <!-- Sidebar Activity Feed -->
+        <div class="col-lg-4">
+            <div class="glass-card feed-container">
+                <div class="card-header-modern mb-3">
+                    <h5 class="mb-0">Real-Time Activity</h5>
+                </div>
+                <div class="activity-feed" id="activity-feed-list">
+                    <!-- Activity items will be injected here -->
+                    <div class="text-center p-5 text-muted">Loading feed...</div>
+                </div>
+            </div>
+
+            <!-- Quick Reports / Shortcuts -->
+            <div class="glass-card mt-4 shortcuts-container">
+                <div class="card-header-modern mb-3">
+                    <h5 class="mb-0">HR Quick Reports</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/app/report/Daily Attendance Report"
+                        class="list-group-item list-group-item-action glass-item">
+                        <i class="fa fa-file-text-o mr-2"></i> Attendance Report
+                    </a>
+                    <a href="/app/report/Monthly Attendance Sheet"
+                        class="list-group-item list-group-item-action glass-item">
+                        <i class="fa fa-calendar mr-2"></i> Monthly Sheet
+                    </a>
+                    <a href="/app/employee" class="list-group-item list-group-item-action glass-item">
+                        <i class="fa fa-user mr-2"></i> Employee List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

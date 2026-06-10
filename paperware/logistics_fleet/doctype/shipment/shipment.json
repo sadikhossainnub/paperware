@@ -1,0 +1,75 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "SHP-.#####",
+    "creation": "2026-01-24 11:13:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "delivery_note",
+        "trip",
+        "customer",
+        "destination",
+        "shipment_status"
+    ],
+    "fields": [
+        {
+            "fieldname": "delivery_note",
+            "fieldtype": "Link",
+            "label": "Delivery Note",
+            "options": "Delivery Note"
+        },
+        {
+            "fieldname": "trip",
+            "fieldtype": "Link",
+            "label": "Trip",
+            "options": "Trip"
+        },
+        {
+            "fieldname": "customer",
+            "fetch_from": "delivery_note.customer",
+            "fieldtype": "Link",
+            "label": "Customer",
+            "options": "Customer"
+        },
+        {
+            "fieldname": "destination",
+            "fetch_from": "delivery_note.shipping_address",
+            "fieldtype": "Small Text",
+            "label": "Destination"
+        },
+        {
+            "fieldname": "shipment_status",
+            "fieldtype": "Select",
+            "default": "Pending",
+            "label": "Shipment Status",
+            "options": "Pending\nIn Transit\nDelivered\nFailed"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "modified": "2026-01-24 11:13:00.000000",
+    "modified_by": "Administrator",
+    "module": "Logistics Fleet",
+    "name": "Shipment",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

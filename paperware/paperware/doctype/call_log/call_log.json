@@ -1,0 +1,196 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-01-23 03:05:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "call_type",
+        "status",
+        "column_break_1",
+        "call_date",
+        "call_time",
+        "duration",
+        "section_break_2",
+        "customer",
+        "lead",
+        "contact",
+        "column_break_3",
+        "phone_number",
+        "section_break_4",
+        "subject",
+        "notes",
+        "recording",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "CL-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "call_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Call Type",
+            "options": "Incoming\nOutgoing",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Completed\nMissed\nBusy\nNo Answer\nScheduled",
+            "reqd": 1,
+            "default": "Completed"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "call_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Date",
+            "reqd": 1,
+            "default": "Today"
+        },
+        {
+            "fieldname": "call_time",
+            "fieldtype": "Time",
+            "label": "Time",
+            "reqd": 1,
+            "default": "Now"
+        },
+        {
+            "fieldname": "duration",
+            "fieldtype": "Duration",
+            "label": "Duration",
+            "hide_seconds": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Contact Details"
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_standard_filter": 1,
+            "label": "Customer",
+            "options": "Customer"
+        },
+        {
+            "fieldname": "lead",
+            "fieldtype": "Link",
+            "label": "Lead",
+            "options": "Lead"
+        },
+        {
+            "fieldname": "contact",
+            "fieldtype": "Link",
+            "label": "Contact Person",
+            "options": "Contact"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "phone_number",
+            "fieldtype": "Data",
+            "label": "Phone Number",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Summary"
+        },
+        {
+            "fieldname": "subject",
+            "fieldtype": "Data",
+            "label": "Subject",
+            "reqd": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text Editor",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "recording",
+            "fieldtype": "Attach",
+            "label": "Call Recording"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Call Log",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2026-01-23 03:05:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Call Log",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

@@ -1,0 +1,377 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+    --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --emergency-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --achievement-gradient: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+.delivery-portal {
+    background: #f3f4f6;
+    min-height: calc(100vh - 100px);
+    padding: 0;
+    font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+}
+
+/* Header Buttons */
+.portal-header-actions {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-btn {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.header-btn:active {
+    transform: scale(0.9);
+}
+
+.header-btn.chat {
+    background: var(--primary-gradient);
+}
+
+.header-btn.earnings {
+    background: var(--success-gradient);
+}
+
+.header-btn.achievements {
+    background: var(--achievement-gradient);
+}
+
+.header-btn.emergency {
+    background: var(--emergency-gradient);
+}
+
+.badge-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+/* Main Dashboard Cards */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+}
+
+.game-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.game-card i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-val {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1f2937;
+}
+
+.card-lbl {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.streak-card i {
+    color: #f97316;
+}
+
+.points-card i {
+    color: #f59e0b;
+}
+
+.speed-card i {
+    color: #3b82f6;
+}
+
+.rank-card i {
+    color: #8b5cf6;
+}
+
+/* Speed Warning Animation */
+@keyframes pulse-red {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+.speed-warning {
+    animation: pulse-red 2s infinite;
+    background: #fee2e2 !important;
+    border: 2px solid #ef4444 !important;
+}
+
+.speed-warning .card-val {
+    color: #ef4444;
+}
+
+/* Quick Actions */
+.quick-actions-section {
+    padding: 0 15px 15px;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #374151;
+    font-size: 16px;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.02);
+}
+
+.training-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+.emergency-grid-btn {
+    background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+}
+
+.earnings-btn {
+    background: linear-gradient(135deg, #10b981 0%, #064e3b 100%);
+}
+
+.rewards-btn {
+    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+}
+
+/* Modal Customization */
+.modal-dialog-full {
+    margin: 10px;
+    height: calc(100vh - 20px);
+}
+
+.modal-content-custom {
+    border-radius: 20px;
+    overflow: hidden;
+    border: none;
+}
+
+.modal-header-gradient {
+    padding: 20px;
+    color: white;
+    border: none;
+}
+
+.chat-header {
+    background: var(--primary-gradient);
+}
+
+.earnings-header {
+    background: var(--success-gradient);
+}
+
+.achievements-header {
+    background: var(--achievement-gradient);
+}
+
+.emergency-header {
+    background: var(--emergency-gradient);
+}
+
+/* Chat UI */
+.chat-container {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f9fafb;
+}
+
+.message {
+    margin-bottom: 15px;
+    max-width: 80%;
+}
+
+.message.you {
+    margin-left: auto;
+}
+
+.msg-bubble {
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.message.you .msg-bubble {
+    background: #3b82f6;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message.manager .msg-bubble {
+    background: white;
+    color: #1f2937;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #e5e7eb;
+}
+
+.msg-meta {
+    font-size: 10px;
+    color: #9ca3af;
+    margin-top: 4px;
+}
+
+.chat-input-area {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 10px;
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    margin-top: 15px;
+}
+
+.leader-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.leader-item.current-user {
+    border: 2px solid #3b82f6;
+    background: #eff6ff;
+}
+
+.rank-badge {
+    width: 30px;
+    font-weight: 800;
+}
+
+/* Earnings UI */
+.earnings-summary {
+    text-align: center;
+    padding: 20px;
+}
+
+.total-amt {
+    font-size: 32px;
+    font-weight: 800;
+    color: #059669;
+}
+
+.earnings-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.breakdown-card {
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.breakdown-card .val {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.breakdown-card .lbl {
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,213 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "VEH-.#####",
+    "creation": "2026-01-24 11:13:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle_number",
+        "vehicle_type",
+        "capacity",
+        "fuel_type",
+        "current_driver",
+        "status",
+        "ownership_type",
+        "technical_details_section",
+        "chassis_number",
+        "engine_number",
+        "registration_date",
+        "expiry_details_section",
+        "tax_token_expiry",
+        "fitness_expiry",
+        "column_break_expiry",
+        "route_permit_expiry",
+        "insurance_expiry",
+        "column_break_gps",
+        "gps_device_id",
+        "last_latitude",
+        "last_longitude",
+        "last_speed",
+        "last_sync",
+        "tracking_map_html",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle_number",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Vehicle Number",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "vehicle_type",
+            "fieldtype": "Select",
+            "label": "Vehicle Type",
+            "options": "Van\nTruck\nBike"
+        },
+        {
+            "fieldname": "capacity",
+            "fieldtype": "Float",
+            "label": "Capacity (kg)"
+        },
+        {
+            "fieldname": "fuel_type",
+            "fieldtype": "Select",
+            "label": "Fuel Type",
+            "options": "Diesel\nPetrol\nCNG\nElectric"
+        },
+        {
+            "fieldname": "current_driver",
+            "fieldtype": "Link",
+            "label": "Current Driver",
+            "options": "Driver"
+        },
+        {
+            "default": "Active",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Active\nIn Use\nMaintenance\nInactive"
+        },
+        {
+            "fieldname": "ownership_type",
+            "fieldtype": "Select",
+            "label": "Ownership Type",
+            "options": "Self-owned\nRented\nLeased"
+        },
+        {
+            "fieldname": "technical_details_section",
+            "fieldtype": "Section Break",
+            "label": "Technical Details"
+        },
+        {
+            "fieldname": "chassis_number",
+            "fieldtype": "Data",
+            "label": "Chassis Number"
+        },
+        {
+            "fieldname": "engine_number",
+            "fieldtype": "Data",
+            "label": "Engine Number"
+        },
+        {
+            "fieldname": "registration_date",
+            "fieldtype": "Date",
+            "label": "Registration Date"
+        },
+        {
+            "fieldname": "expiry_details_section",
+            "fieldtype": "Section Break",
+            "label": "Document Expiry Tracking"
+        },
+        {
+            "fieldname": "tax_token_expiry",
+            "fieldtype": "Date",
+            "label": "Tax Token Expiry"
+        },
+        {
+            "fieldname": "fitness_expiry",
+            "fieldtype": "Date",
+            "label": "Fitness Expiry"
+        },
+        {
+            "fieldname": "column_break_expiry",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "route_permit_expiry",
+            "fieldtype": "Date",
+            "label": "Route Permit Expiry"
+        },
+        {
+            "fieldname": "insurance_expiry",
+            "fieldtype": "Date",
+            "label": "Insurance Expiry"
+        },
+        {
+            "fieldname": "column_break_gps",
+            "fieldtype": "Section Break",
+            "label": "GPS Tracking"
+        },
+        {
+            "fieldname": "gps_device_id",
+            "fieldtype": "Data",
+            "label": "GPS Device ID"
+        },
+        {
+            "fieldname": "last_latitude",
+            "fieldtype": "Float",
+            "label": "Last Latitude",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_longitude",
+            "fieldtype": "Float",
+            "label": "Last Longitude",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_speed",
+            "fieldtype": "Data",
+            "label": "Last Speed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_sync",
+            "fieldtype": "Datetime",
+            "label": "Last Sync",
+            "read_only": 1
+        },
+        {
+            "fieldname": "tracking_map_html",
+            "fieldtype": "HTML",
+            "label": "Live Tracking Map"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Vehicle",
+            "print_hide": 1,
+            "read_only": 1,
+            "search_index": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2026-02-01 02:37:18.244025",
+    "modified_by": "sayedtkg@gmail.com",
+    "module": "Logistics Fleet",
+    "name": "Vehicle",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

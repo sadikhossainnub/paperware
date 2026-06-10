@@ -1,0 +1,60 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2026-05-31 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "quantity",
+        "sheets_required",
+        "total_cost",
+        "cost_per_unit",
+        "selling_rate"
+    ],
+    "fields": [
+        {
+            "fieldname": "quantity",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Quantity"
+        },
+        {
+            "fieldname": "sheets_required",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Sheets Required"
+        },
+        {
+            "fieldname": "total_cost",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Cost"
+        },
+        {
+            "fieldname": "cost_per_unit",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Cost per Unit"
+        },
+        {
+            "fieldname": "selling_rate",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Selling Rate"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2026-05-31 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "PC Multi Qty Row",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

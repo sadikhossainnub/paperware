@@ -1,0 +1,96 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:item_type",
+    "creation": "2026-05-31 00:00:00",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "item_type",
+        "default_profit_markup",
+        "default_chaat_percent",
+        "default_gripper_margin",
+        "default_flap_height",
+        "default_glue_tab",
+        "default_pasting_gap"
+    ],
+    "fields": [
+        {
+            "fieldname": "item_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Item Type",
+            "options": "Paper Cup\nCup Holder\nCup Jacket\nFrench Fry Cone\nPlastic Lid\nMeal Box\nOuter Box\nTissue Box\nPaper Bag\nTable Paper Matt\nPaper Leaflet\nPaper Sticker\nBusiness Card\nHand Tag\nMemo Book\nEnevolve",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "default": "25",
+            "fieldname": "default_profit_markup",
+            "fieldtype": "Percent",
+            "label": "Default Profit Markup (%)"
+        },
+        {
+            "default": "5",
+            "fieldname": "default_chaat_percent",
+            "fieldtype": "Percent",
+            "label": "Default Chaat / Waste %"
+        },
+        {
+            "default": "12",
+            "fieldname": "default_gripper_margin",
+            "fieldtype": "Float",
+            "label": "Default Gripper Margin (mm)"
+        },
+        {
+            "fieldname": "default_flap_height",
+            "fieldtype": "Float",
+            "label": "Default Flap Height (mm)"
+        },
+        {
+            "default": "15",
+            "fieldname": "default_glue_tab",
+            "fieldtype": "Float",
+            "label": "Default Glue Tab (mm)"
+        },
+        {
+            "default": "3",
+            "fieldname": "default_pasting_gap",
+            "fieldtype": "Float",
+            "label": "Default Pasting Gap (mm)"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2026-05-31 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "PC Item Type Config",
+    "naming_rule": "By \"Item Type\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing Manager",
+            "write": 1
+        }
+    ],
+    "sort_field": "item_type",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 1
+}

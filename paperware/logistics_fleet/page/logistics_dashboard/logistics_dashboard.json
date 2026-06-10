@@ -1,0 +1,23 @@
+{
+    "content": "<!-- <div class=\"row\">\n\t<div class=\"col-md-12\">\n\t\t<h1>Logistics Dashboard</h1>\n\t</div>\n</div> -->",
+    "creation": "2026-01-22 06:54:00.000000",
+    "docstatus": 0,
+    "doctype": "Page",
+    "idx": 0,
+    "modified": "2026-01-24 13:55:00.000000",
+    "modified_by": "Administrator",
+    "module": "Logistics Fleet",
+    "name": "Logistics Dashboard",
+    "owner": "Administrator",
+    "page_name": "logistics-dashboard",
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Stock User"
+        }
+    ],
+    "standard": "Yes",
+    "title": "Logistics Dashboard"
+}

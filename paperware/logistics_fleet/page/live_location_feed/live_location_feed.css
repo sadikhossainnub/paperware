@@ -1,0 +1,8 @@
+/* Live Location Feed CSS */
+.live-location-feed .user-list-item:hover {
+    background: #f7f7f7;
+}
+
+.live-location-feed .user-list-item.selected {
+    background: #e8f0fe;
+}

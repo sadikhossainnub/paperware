@@ -1,0 +1,108 @@
+<!-- Copyright (c) 2026, Sayed and contributors -->
+<!-- For license information, please see license.txt -->
+
+<div style="font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h2 style="margin: 0; color: #1a5f7a;">PAPERWARE FACTORY</h2>
+        <p style="margin: 5px 0; color: #666;">Pre-Costing Sheet</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #f9f9f9;">
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <strong>Pre Costing Order:</strong> {{ doc.name }}<br>
+                <strong>Date:</strong> {{ frappe.utils.format_date(doc.costing_date) }}
+            </div>
+            <div style="text-align: right;">
+                <strong>Customer:</strong> {{ doc.customer }}<br>
+                <strong>Reference:</strong> {{ doc.costing_reference or '-' }}
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <h3 style="margin-top: 0; color: #333;">Product Details</h3>
+        <p><strong>Item Type:</strong> {{ doc.item_type }}</p>
+        <p><strong>Finished Goods:</strong> {{ doc.fg_item }} - {{ doc.item_name }}</p>
+        <p><strong>Target Quantity:</strong> {{ doc.target_qty }} pcs</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <h3 style="margin-top: 0; color: #333;">Cost Breakdown</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr style="background: #f0f0f0;">
+                <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd;">Description</th>
+                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd;">Amount (৳)</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px;">Paper Cost</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_paper_cost or 0) }}</td>
+            </tr>
+            {% if doc.total_printing_cost and doc.total_printing_cost > 0 %}
+            <tr>
+                <td style="padding: 8px;">Printing Cost</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_printing_cost) }}</td>
+            </tr>
+            {% endif %}
+            {% if doc.total_lamination_cost and doc.total_lamination_cost > 0 %}
+            <tr>
+                <td style="padding: 8px;">Lamination Cost</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_lamination_cost) }}</td>
+            </tr>
+            {% endif %}
+            {% if doc.total_die_cutting_cost and doc.total_die_cutting_cost > 0 %}
+            <tr>
+                <td style="padding: 8px;">Die Cutting Cost</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_die_cutting_cost) }}</td>
+            </tr>
+            {% endif %}
+            {% if doc.total_foaming_cost and doc.total_foaming_cost > 0 %}
+            <tr>
+                <td style="padding: 8px;">Foaming Cost</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_foaming_cost) }}</td>
+            </tr>
+            {% endif %}
+            {% if doc.total_additional_charges and doc.total_additional_charges > 0 %}
+            <tr>
+                <td style="padding: 8px;">Additional Charges</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_additional_charges) }}</td>
+            </tr>
+            {% endif %}
+            <tr style="background: #e8f4f8; font-weight: bold;">
+                <td style="padding: 8px;">Total Production Cost</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.total_production_cost) }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px;">Cost per Piece</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.cost_per_unit) }}</td>
+            </tr>
+            <tr style="background: #e8f4f8; font-weight: bold;">
+                <td style="padding: 8px;">Selling Rate ({{ doc.profit_markup or 25 }}% markup)</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(doc.selling_rate) }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+        <h3 style="margin-top: 0; color: #333;">Quantity Comparison</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr style="background: #f0f0f0;">
+                <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ddd;">Quantity</th>
+                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd;">Cost/Piece</th>
+                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ddd;">Selling Rate</th>
+            </tr>
+            {% for row in doc.multi_qty_comparison or [] %}
+            <tr>
+                <td style="padding: 8px;">{{ "{:,}".format(row.quantity) }}</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(row.cost_per_unit) }}</td>
+                <td style="padding: 8px; text-align: right;">{{ "{:,.2f}".format(row.selling_rate) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666; font-size: 12px;">
+        <p>Pre Costing Order generated by Paperware Pre-Costing Module</p>
+        <p>{{ frappe.utils.nowdate() }}</p>
+    </div>
+</div>

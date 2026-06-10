@@ -1,0 +1,138 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-01-26 19:40:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "sales_person",
+        "fiscal_year",
+        "column_break_1",
+        "target_period",
+        "month",
+        "section_break_2",
+        "total_target_amount",
+        "total_target_qty",
+        "section_break_3",
+        "targets"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "TARGET-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "sales_person",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Sales Person",
+            "options": "Sales Person",
+            "reqd": 1
+        },
+        {
+            "fieldname": "fiscal_year",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Fiscal Year",
+            "options": "2024\n2025\n2026\n2027\n2028\n2029\n2030",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "target_period",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Target Period",
+            "options": "Monthly\nQuarterly\nYearly",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:doc.target_period=='Monthly'",
+            "fieldname": "month",
+            "fieldtype": "Select",
+            "label": "Month",
+            "options": "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Totals"
+        },
+        {
+            "fieldname": "total_target_amount",
+            "fieldtype": "Currency",
+            "label": "Total Target Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_target_qty",
+            "fieldtype": "Float",
+            "label": "Total Target Quantity",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Target Items"
+        },
+        {
+            "fieldname": "targets",
+            "fieldtype": "Table",
+            "label": "Targets",
+            "options": "Sales Target Item"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2026-01-26 19:40:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Sales Target",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "sales_person",
+    "track_changes": 1
+}

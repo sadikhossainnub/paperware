@@ -1,0 +1,105 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "TRIP-.#####",
+    "creation": "2026-01-24 11:13:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "driver",
+        "vehicle",
+        "start_time",
+        "end_time",
+        "start_location",
+        "end_location",
+        "start_odometer",
+        "end_odometer",
+        "total_distance",
+        "trip_status"
+    ],
+    "fields": [
+        {
+            "fieldname": "driver",
+            "fieldtype": "Link",
+            "label": "Driver",
+            "options": "Driver",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "label": "Vehicle",
+            "options": "Vehicle",
+            "reqd": 1
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Datetime",
+            "label": "Start Time"
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Datetime",
+            "label": "End Time"
+        },
+        {
+            "fieldname": "start_location",
+            "fieldtype": "Data",
+            "label": "Start Location"
+        },
+        {
+            "fieldname": "end_location",
+            "fieldtype": "Data",
+            "label": "End Location"
+        },
+        {
+            "fieldname": "start_odometer",
+            "fieldtype": "Float",
+            "label": "Start Odometer"
+        },
+        {
+            "fieldname": "end_odometer",
+            "fieldtype": "Float",
+            "label": "End Odometer"
+        },
+        {
+            "fieldname": "total_distance",
+            "fieldtype": "Float",
+            "label": "Total Distance (KM)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "trip_status",
+            "fieldtype": "Select",
+            "default": "Planned",
+            "label": "Trip Status",
+            "options": "Planned\nRunning\nCompleted\nCancelled"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "modified": "2026-01-24 11:13:00.000000",
+    "modified_by": "Administrator",
+    "module": "Logistics Fleet",
+    "name": "Trip",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

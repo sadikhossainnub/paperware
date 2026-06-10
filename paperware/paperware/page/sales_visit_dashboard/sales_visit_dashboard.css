@@ -1,0 +1,56 @@
+.sales-visit-dashboard {
+	padding: 15px;
+}
+
+.dashboard-section {
+	margin-bottom: 30px;
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stats-section {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.stat-card {
+	flex: 1;
+	min-width: 200px;
+	background: #f8f9fa;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.stat-value {
+	font-size: 32px;
+	font-weight: bold;
+	color: #2c3e50;
+}
+
+.stat-label {
+	color: #7f8c8d;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin-top: 5px;
+}
+
+.purpose-breakdown ul {
+	list-style: none;
+	padding: 0;
+	text-align: left;
+}
+
+.purpose-breakdown li {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.purpose-breakdown li:last-child {
+	border-bottom: none;
+}

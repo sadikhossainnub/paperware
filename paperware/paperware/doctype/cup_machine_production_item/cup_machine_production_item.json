@@ -1,0 +1,95 @@
+{
+    "actions": [],
+    "creation": "2026-03-07 03:30:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "machine_name",
+        "operator",
+        "cup_type",
+        "customer",
+        "customer_name",
+        "quantity_produced",
+        "wastage",
+        "net_production",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "machine_name",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Machine Name",
+            "options": "Asset",
+            "reqd": 1
+        },
+        {
+            "fieldname": "operator",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Operator",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "cup_type",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Cup Type",
+            "options": "Item"
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer"
+        },
+        {
+            "fetch_from": "customer.customer_name",
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "label": "Customer Name",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "quantity_produced",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Quantity Produced",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "wastage",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Wastage"
+        },
+        {
+            "fieldname": "net_production",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Net Production",
+            "read_only": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Data",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2026-03-07 03:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Cup Machine Production Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

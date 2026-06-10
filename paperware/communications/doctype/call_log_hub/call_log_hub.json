@@ -1,0 +1,93 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "CALL-.#####",
+    "creation": "2026-01-24 13:15:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "customer_name",
+        "phone_no",
+        "call_type",
+        "column_break_1",
+        "time",
+        "duration",
+        "status",
+        "section_break_2",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Customer/Driver Name"
+        },
+        {
+            "fieldname": "phone_no",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Phone Number",
+            "reqd": 1
+        },
+        {
+            "fieldname": "call_type",
+            "fieldtype": "Select",
+            "label": "Call Type",
+            "options": "Incoming\nOutgoing\nMissed"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Now",
+            "fieldname": "time",
+            "fieldtype": "Datetime",
+            "label": "Time"
+        },
+        {
+            "fieldname": "duration",
+            "fieldtype": "Data",
+            "label": "Duration (HH:MM:SS)"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Solved\nPending\nSpam"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Small Text",
+            "label": "Notes"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "modified": "2026-01-24 13:15:00.000000",
+    "modified_by": "Administrator",
+    "module": "Communications",
+    "name": "Call Log Hub",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

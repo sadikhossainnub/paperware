@@ -1,0 +1,77 @@
+{
+    "actions": [],
+    "creation": "2026-01-23 02:20:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "istable": 1,
+    "field_order": [
+        "log_datetime",
+        "user",
+        "log_type",
+        "column_break_1",
+        "gps_location",
+        "section_break_1",
+        "note",
+        "image"
+    ],
+    "fields": [
+        {
+            "fieldname": "log_datetime",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Datetime",
+            "reqd": 1,
+            "default": "Now"
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "User",
+            "options": "User",
+            "default": "Session User"
+        },
+        {
+            "fieldname": "log_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Type",
+            "options": "Check-in\nNote\nImage\nLocation\nCheck-out",
+            "default": "Note"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "gps_location",
+            "fieldtype": "Data",
+            "label": "GPS Location"
+        },
+        {
+            "fieldname": "section_break_1",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "note",
+            "fieldtype": "Small Text",
+            "label": "Note"
+        },
+        {
+            "fieldname": "image",
+            "fieldtype": "Attach Image",
+            "label": "Image"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "modified": "2026-01-23 02:20:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Sales Visit Log",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "log_datetime",
+    "sort_order": "DESC",
+    "states": []
+}

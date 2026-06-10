@@ -1,0 +1,70 @@
+{
+    "actions": [],
+    "creation": "2026-03-08 21:50:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "employee",
+        "employee_name",
+        "start_time",
+        "end_time",
+        "amount"
+    ],
+    "fields": [
+        {
+            "fieldname": "employee",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Employee",
+            "options": "Employee",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "fetch_from": "employee.employee_name",
+            "fieldname": "employee_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Employee Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Time",
+            "in_list_view": 1,
+            "label": "Start Time"
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Time",
+            "in_list_view": 1,
+            "label": "End Time"
+        },
+        {
+            "default": "0",
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Amount",
+            "non_negative": 1,
+            "reqd": 1
+        }
+    ],
+    "grid_page_length": 100,
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2026-03-08 22:13:00.661339",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Snack Money Entry Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "row_format": "Dynamic",
+    "rows_threshold_for_grid_search": 50,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

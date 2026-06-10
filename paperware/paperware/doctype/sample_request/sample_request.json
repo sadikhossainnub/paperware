@@ -1,0 +1,191 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-01-28 14:20:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "customer",
+        "sample_type",
+        "column_break_1",
+        "date",
+        "expected_delivery_date",
+        "priority",
+        "status",
+        "section_break_2",
+        "items",
+        "reason_for_sample",
+        "description",
+        "section_break_3",
+        "delivery_address",
+        "column_break_2",
+        "assigned_to",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "SR-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Customer",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "fieldname": "sample_type",
+            "fieldtype": "Select",
+            "label": "Sample Type",
+            "options": "Existing Product\nNew Development\nMaterial Sample\nPackaging Material",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "label": "Date",
+            "reqd": 1,
+            "default": "Today"
+        },
+        {
+            "fieldname": "expected_delivery_date",
+            "fieldtype": "Date",
+            "label": "Expected Delivery Date"
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Priority",
+            "options": "Low\nMedium\nHigh\nUrgent",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nRequested\nIn Preparation\nSent\nDelivered\nCancelled",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Sample Details"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Items",
+            "options": "Sample Request Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "reason_for_sample",
+            "fieldtype": "Small Text",
+            "label": "Reason for Sample"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text Editor",
+            "label": "Description / Special Instructions"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Delivery & Assignment"
+        },
+        {
+            "fieldname": "delivery_address",
+            "fieldtype": "Text",
+            "label": "Delivery Address"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "assigned_to",
+            "fieldtype": "Link",
+            "label": "Assigned To",
+            "options": "User"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Sample Request",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "modified": "2026-01-28 14:20:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Sample Request",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "customer",
+    "track_changes": 1
+}

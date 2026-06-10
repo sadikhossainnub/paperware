@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:name",
+ "creation": "2025-07-28 17:07:22.323779",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name",
+  "box_size_section",
+  "length",
+  "column_break_gjnh",
+  "weight",
+  "column_break_bzzk",
+  "height"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "height",
+   "fieldtype": "Data",
+   "label": "Height",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gjnh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Width",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bzzk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "length",
+   "fieldtype": "Data",
+   "label": "Length",
+   "reqd": 1
+  },
+  {
+   "fieldname": "box_size_section",
+   "fieldtype": "Section Break",
+   "label": "Box Size"
+  },
+  {
+   "fieldname": "name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-20 12:18:25.957342",
+ "modified_by": "Administrator",
+ "module": "Paperware Stock",
+ "name": "Box Size",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 0,
+   "write": 1,
+   "delete": 0
+  },
+  {
+   "create": 1,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 0,
+   "write": 1,
+   "delete": 0
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

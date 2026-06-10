@@ -1,0 +1,100 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2026-05-31 00:00:00",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_general",
+        "buying_price_list",
+        "default_profit_markup",
+        "column_break_1",
+        "default_machine_rate",
+        "section_rate_lookup",
+        "use_paperware_rate_cards",
+        "section_defaults",
+        "default_chaat_percent",
+        "default_gripper_margin"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_general",
+            "fieldtype": "Section Break",
+            "label": "General Settings"
+        },
+        {
+            "default": "Standard Buying",
+            "fieldname": "buying_price_list",
+            "fieldtype": "Link",
+            "label": "Buying Price List",
+            "options": "Price List"
+        },
+        {
+            "default": "25",
+            "fieldname": "default_profit_markup",
+            "fieldtype": "Percent",
+            "label": "Default Profit Markup (%)"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "default_machine_rate",
+            "fieldtype": "Currency",
+            "label": "Default Machine Rate"
+        },
+        {
+            "fieldname": "section_rate_lookup",
+            "fieldtype": "Section Break",
+            "label": "Rate Card Settings"
+        },
+        {
+            "default": "1",
+            "fieldname": "use_paperware_rate_cards",
+            "fieldtype": "Check",
+            "label": "Use Paperware Rate Cards"
+        },
+        {
+            "fieldname": "section_defaults",
+            "fieldtype": "Section Break",
+            "label": "Default Values"
+        },
+        {
+            "default": "5",
+            "fieldname": "default_chaat_percent",
+            "fieldtype": "Percent",
+            "label": "Default Chaat / Waste %"
+        },
+        {
+            "default": "12",
+            "fieldname": "default_gripper_margin",
+            "fieldtype": "Float",
+            "label": "Default Gripper Margin (mm)"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "issingle": 1,
+    "links": [],
+    "modified": "2026-05-31 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "Pre Costing Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

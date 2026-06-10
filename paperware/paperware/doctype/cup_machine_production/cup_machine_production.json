@@ -1,0 +1,201 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-03-07 03:30:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "date",
+        "shift",
+        "customer",
+        "customer_name",
+        "column_break_1",
+        "supervisor",
+        "supervisor_name",
+        "company",
+        "section_break_items",
+        "items",
+        "section_break_totals",
+        "grand_total_production",
+        "column_break_totals",
+        "grand_total_wastage",
+        "section_break_remarks",
+        "remarks",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "CMP-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Date",
+            "reqd": 1
+        },
+        {
+            "default": "Morning",
+            "fieldname": "shift",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Shift",
+            "options": "Morning\nEvening\nNight",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Customer",
+            "options": "Customer"
+        },
+        {
+            "fetch_from": "customer.customer_name",
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "label": "Customer Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "supervisor",
+            "fieldtype": "Link",
+            "label": "Supervisor",
+            "options": "Employee"
+        },
+        {
+            "fetch_from": "supervisor.employee_name",
+            "fieldname": "supervisor_name",
+            "fieldtype": "Data",
+            "label": "Supervisor Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_items",
+            "fieldtype": "Section Break",
+            "label": "Machine Wise Production"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Cup Machine Production Items",
+            "options": "Cup Machine Production Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_totals",
+            "fieldtype": "Section Break",
+            "label": "Totals"
+        },
+        {
+            "fieldname": "grand_total_production",
+            "fieldtype": "Int",
+            "label": "Grand Total Production",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_totals",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "grand_total_wastage",
+            "fieldtype": "Int",
+            "label": "Grand Total Wastage",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_remarks",
+            "fieldtype": "Section Break",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Cup Machine Production",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2026-03-07 03:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Cup Machine Production",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing User",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

@@ -1,0 +1,23 @@
+{
+    "content": "<!-- <div class=\"row\">\n\t<div class=\"col-md-12\">\n\t\t<h1>Sales KPIs</h1>\n\t</div>\n</div> -->",
+    "creation": "2026-01-22 06:55:00.000000",
+    "docstatus": 0,
+    "doctype": "Page",
+    "idx": 0,
+    "modified": "2026-01-22 06:55:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "Sales KPIs",
+    "owner": "Administrator",
+    "page_name": "sales-kpis",
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Sales User"
+        }
+    ],
+    "standard": "Yes",
+    "title": "Sales KPIs"
+}
