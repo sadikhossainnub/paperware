@@ -1,0 +1,68 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2026-06-13 06:10:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "stage",
+        "worker",
+        "started_time",
+        "completed_time",
+        "gps_location",
+        "attachments"
+    ],
+    "fields": [
+        {
+            "fieldname": "stage",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Stage",
+            "options": "Printing\nDrying\nLamination\nDie Cutting\nFoaming\nQuality Check\nReady to Deliver\nDelivered",
+            "reqd": 1
+        },
+        {
+            "fieldname": "worker",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Worker",
+            "options": "User"
+        },
+        {
+            "fieldname": "started_time",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Started Time"
+        },
+        {
+            "fieldname": "completed_time",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Completed Time"
+        },
+        {
+            "fieldname": "gps_location",
+            "fieldtype": "Data",
+            "label": "GPS Location"
+        },
+        {
+            "fieldname": "attachments",
+            "fieldtype": "Attach",
+            "label": "Attachments"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2026-06-13 06:10:00.000000",
+    "modified_by": "Administrator",
+    "module": "Paperware",
+    "name": "CTP Stage Log",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}
