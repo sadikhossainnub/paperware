@@ -269,7 +269,6 @@
         },
         {
             "fieldname": "amended_from",
-            "fieldname": "amended_from",
             "fieldtype": "Link",
             "label": "Amended From",
             "no_copy": 1,
