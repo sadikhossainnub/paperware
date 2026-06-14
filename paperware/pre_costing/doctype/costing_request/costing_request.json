@@ -1,0 +1,349 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-06-15 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "customer",
+        "request_date",
+        "company",
+        "column_break_1",
+        "status",
+        "request_reference",
+        "section_product_details",
+        "product_category",
+        "product_description",
+        "target_quantity",
+        "column_break_2",
+        "target_price",
+        "previous_rate",
+        "section_specifications",
+        "product_type",
+        "inner_diameter_mm",
+        "outer_diameter_mm",
+        "height_mm",
+        "thickness_mm",
+        "material_type",
+        "section_printing_details",
+        "print_required",
+        "print_colors",
+        "print_type",
+        "special_effects",
+        "column_break_3",
+        "section_finishing",
+        "finishing_required",
+        "finishing_type",
+        "quality_standard",
+        "section_packaging",
+        "packaging_type",
+        "packaging_quantity",
+        "delivery_timeline",
+        "section_notes",
+        "special_instructions",
+        "sample_requested",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "CR-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "request_date",
+            "fieldtype": "Date",
+            "label": "Request Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nSubmitted\nCancelled"
+        },
+        {
+            "fieldname": "request_reference",
+            "fieldtype": "Data",
+            "label": "Request Reference"
+        },
+        {
+            "fieldname": "section_product_details",
+            "fieldtype": "Section Break",
+            "label": "Product Details"
+        },
+        {
+            "fieldname": "product_category",
+            "fieldtype": "Select",
+            "label": "Product Category",
+            "options": "Standard\nCustom\nPremium",
+            "reqd": 1
+        },
+        {
+            "fieldname": "product_description",
+            "fieldtype": "Small Text",
+            "label": "Product Description"
+        },
+        {
+            "fieldname": "target_quantity",
+            "fieldtype": "Int",
+            "label": "Target Quantity",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "target_price",
+            "fieldtype": "Currency",
+            "label": "Target Price (per unit)"
+        },
+        {
+            "fieldname": "previous_rate",
+            "fieldtype": "Currency",
+            "label": "Previous Rate (per unit)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_specifications",
+            "fieldtype": "Section Break",
+            "label": "Specifications"
+        },
+        {
+            "fieldname": "product_type",
+            "fieldtype": "Select",
+            "label": "Product Type",
+            "options": "Single Wall\nDouble Wall\nTriple Wall\nCustom",
+            "reqd": 1
+        },
+        {
+            "fieldname": "inner_diameter_mm",
+            "fieldtype": "Float",
+            "label": "Inner Diameter (mm)"
+        },
+        {
+            "fieldname": "outer_diameter_mm",
+            "fieldtype": "Float",
+            "label": "Outer Diameter (mm)"
+        },
+        {
+            "fieldname": "height_mm",
+            "fieldtype": "Float",
+            "label": "Height (mm)"
+        },
+        {
+            "fieldname": "thickness_mm",
+            "fieldtype": "Float",
+            "label": "Wall Thickness (mm)"
+        },
+        {
+            "fieldname": "material_type",
+            "fieldtype": "Select",
+            "label": "Material Type",
+            "options": "Paper\nPlastic\nMetal\nComposite",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_printing_details",
+            "fieldtype": "Section Break",
+            "label": "Printing Details"
+        },
+        {
+            "default": "0",
+            "fieldname": "print_required",
+            "fieldtype": "Check",
+            "label": "Printing Required"
+        },
+        {
+            "depends_on": "eval:doc.print_required == 1",
+            "fieldname": "print_colors",
+            "fieldtype": "Select",
+            "label": "Print Colors",
+            "options": "1 Colour\n2 Colour\n3 Colour\n4 Colour\n4+1\nFull Color"
+        },
+        {
+            "depends_on": "eval:doc.print_required == 1",
+            "fieldname": "print_type",
+            "fieldtype": "Select",
+            "label": "Print Type",
+            "options": "Offset\nDigital\nFlexo\nScreen"
+        },
+        {
+            "depends_on": "eval:doc.print_required == 1",
+            "fieldname": "special_effects",
+            "fieldtype": "Select",
+            "label": "Special Effects",
+            "options": "\nVarnish\nFoil Stamping\nEmbossing\nDebossing\nLamination"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "section_finishing",
+            "fieldtype": "Section Break",
+            "label": "Finishing & Quality"
+        },
+        {
+            "default": "0",
+            "fieldname": "finishing_required",
+            "fieldtype": "Check",
+            "label": "Finishing Required"
+        },
+        {
+            "depends_on": "eval:doc.finishing_required == 1",
+            "fieldname": "finishing_type",
+            "fieldtype": "Select",
+            "label": "Finishing Type",
+            "options": "Cutting\nSealing\nAssembly\nQA Check\nPacking"
+        },
+        {
+            "fieldname": "quality_standard",
+            "fieldtype": "Select",
+            "label": "Quality Standard",
+            "options": "Standard\nPremium\nFood Grade\nCustom"
+        },
+        {
+            "fieldname": "section_packaging",
+            "fieldtype": "Section Break",
+            "label": "Packaging & Delivery"
+        },
+        {
+            "fieldname": "packaging_type",
+            "fieldtype": "Select",
+            "label": "Packaging Type",
+            "options": "Box\nBag\nBulk\nCustom"
+        },
+        {
+            "fieldname": "packaging_quantity",
+            "fieldtype": "Int",
+            "label": "Pieces per Pack"
+        },
+        {
+            "fieldname": "delivery_timeline",
+            "fieldtype": "Select",
+            "label": "Delivery Timeline",
+            "options": "1 Week\n2 Weeks\n3 Weeks\n1 Month\nCustom"
+        },
+        {
+            "fieldname": "section_notes",
+            "fieldtype": "Section Break",
+            "label": "Notes & Samples"
+        },
+        {
+            "fieldname": "special_instructions",
+            "fieldtype": "Text Editor",
+            "label": "Special Instructions"
+        },
+        {
+            "default": "0",
+            "fieldname": "sample_requested",
+            "fieldtype": "Check",
+            "label": "Sample Requested"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Costing Request",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2026-06-15 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Pre Costing",
+    "name": "Costing Request",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing User",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1
+}
