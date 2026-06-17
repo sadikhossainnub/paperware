@@ -46,7 +46,8 @@ app_version = "0.0.3"
 
 # include js in doctype views
 doctype_js = {
-    "Item": "public/js/item.js"
+    "Item": "public/js/item.js",
+    "Sales Order": "public/js/sales_order.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
