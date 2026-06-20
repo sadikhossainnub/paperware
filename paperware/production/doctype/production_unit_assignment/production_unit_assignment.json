@@ -1,0 +1,175 @@
+{
+    "actions": [],
+    "creation": "2024-01-15 00:00:00",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "production_order_item",
+        "unit_code",
+        "unit_name",
+        "column_break_1",
+        "assigned_date",
+        "expected_completion_date",
+        "section_break_resources",
+        "worker_code",
+        "operator_name",
+        "column_break_2",
+        "machine_asset_id",
+        "section_break_progress",
+        "start_datetime",
+        "current_progress_percent",
+        "column_break_3",
+        "estimated_completion_datetime",
+        "unit_status",
+        "section_break_completion",
+        "completion_date",
+        "produced_quantity",
+        "section_break_notes",
+        "operator_notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "production_order_item",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Production Order Item",
+            "options": "Production Order Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "unit_code",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Unit Code",
+            "options": "Printing\nDie Cutting\nCup Forming\nLamination\nPacking\nQC",
+            "reqd": 1
+        },
+        {
+            "fieldname": "unit_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Unit Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "assigned_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Assigned Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "expected_completion_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Expected Completion Date",
+            "reqd": 1
+        },
+        {
+            "collapsible": 0,
+            "fieldname": "section_break_resources",
+            "fieldtype": "Section Break",
+            "label": "Resource Assignment"
+        },
+        {
+            "fieldname": "worker_code",
+            "fieldtype": "Data",
+            "label": "Worker Code"
+        },
+        {
+            "fieldname": "operator_name",
+            "fieldtype": "Data",
+            "label": "Operator Name"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "machine_asset_id",
+            "fieldtype": "Link",
+            "label": "Machine Asset ID",
+            "options": "Asset"
+        },
+        {
+            "collapsible": 0,
+            "fieldname": "section_break_progress",
+            "fieldtype": "Section Break",
+            "label": "Progress Tracking"
+        },
+        {
+            "fieldname": "start_datetime",
+            "fieldtype": "Datetime",
+            "label": "Start Datetime"
+        },
+        {
+            "default": "0",
+            "fieldname": "current_progress_percent",
+            "fieldtype": "Float",
+            "label": "Current Progress (%)"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "estimated_completion_datetime",
+            "fieldtype": "Datetime",
+            "label": "Estimated Completion Datetime"
+        },
+        {
+            "default": "Pending",
+            "fieldname": "unit_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Unit Status",
+            "options": "Pending\nIn Progress\nCompleted\nRejected",
+            "reqd": 1
+        },
+        {
+            "collapsible": 0,
+            "fieldname": "section_break_completion",
+            "fieldtype": "Section Break",
+            "label": "Completion Details"
+        },
+        {
+            "fieldname": "completion_date",
+            "fieldtype": "Date",
+            "label": "Completion Date"
+        },
+        {
+            "default": "0",
+            "fieldname": "produced_quantity",
+            "fieldtype": "Float",
+            "label": "Produced Quantity"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_notes",
+            "fieldtype": "Section Break",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "operator_notes",
+            "fieldtype": "Text",
+            "label": "Operator Notes"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-01-15 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Production",
+    "name": "Production Unit Assignment",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

@@ -11,7 +11,7 @@ frappe.ui.form.on('Item', {
             }
         }
     },
-    before_save: async function(frm) {
+    before_save: async function (frm) {
         if (!frm.doc) return;
 
         const parts = [
@@ -86,7 +86,7 @@ frappe.ui.form.on('Item', {
             await frm.set_value("item_code", new_item_code);
         }
     },
-    validate: function(frm) {
+    validate: function (frm) {
         if (frm.doc.description_manually_edited) {
             return;
         }

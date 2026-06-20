@@ -7,10 +7,19 @@
         "item_code",
         "item_name",
         "description",
+        "customer_name",
+        "column_break_1",
         "sales_order_qty",
         "qty_to_produce",
         "produced_qty",
-        "uom"
+        "uom",
+        "section_break_priority",
+        "priority_level",
+        "delivery_date",
+        "column_break_2",
+        "item_status",
+        "section_break_specification",
+        "production_specification"
     ],
     "fields": [
         {
@@ -33,6 +42,15 @@
             "fieldname": "description",
             "fieldtype": "Small Text",
             "label": "Description"
+        },
+        {
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "label": "Customer Name"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
         },
         {
             "default": "0",
@@ -65,6 +83,50 @@
             "label": "UOM",
             "options": "UOM",
             "read_only": 1
+        },
+        {
+            "fieldname": "section_break_priority",
+            "fieldtype": "Section Break",
+            "label": "Priority & Status"
+        },
+        {
+            "default": "Medium",
+            "fieldname": "priority_level",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Priority Level",
+            "options": "Low\nMedium\nHigh\nUrgent",
+            "reqd": 1
+        },
+        {
+            "fieldname": "delivery_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Delivery Date"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Draft",
+            "fieldname": "item_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Item Status",
+            "options": "Draft\nPlanned\nIn Progress\nQC Pending\nCompleted\nFailed",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_specification",
+            "fieldtype": "Section Break",
+            "label": "Production Specification"
+        },
+        {
+            "fieldname": "production_specification",
+            "fieldtype": "Link",
+            "label": "Production Specification",
+            "options": "Production Specification"
         }
     ],
     "index_web_pages_for_search": 1,
