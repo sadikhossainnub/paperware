@@ -8,11 +8,9 @@
     "field_order": [
         "naming_series",
         "get_sales_order",
-        "sales_order",
         "date",
         "company",
         "column_break_1",
-        "customer_name",
         "status",
         "section_break_items",
         "items",
@@ -34,14 +32,6 @@
             "label": "Get Sales Order"
         },
         {
-            "fieldname": "sales_order",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Sales Order",
-            "options": "Sales Order",
-            "read_only": 1
-        },
-        {
             "default": "Today",
             "fieldname": "date",
             "fieldtype": "Date",
@@ -59,13 +49,6 @@
         {
             "fieldname": "column_break_1",
             "fieldtype": "Column Break"
-        },
-        {
-            "fetch_from": "sales_order.customer_name",
-            "fieldname": "customer_name",
-            "fieldtype": "Data",
-            "label": "Customer Name",
-            "read_only": 1
         },
         {
             "default": "Draft",

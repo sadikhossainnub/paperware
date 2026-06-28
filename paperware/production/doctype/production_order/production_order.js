@@ -8,65 +8,88 @@ frappe.ui.form.on("Production Order", {
         }
     },
     refresh(frm) {
-        if (frm.doc.sales_order) {
+        if (frm.doc.items && frm.doc.items.length > 0) {
             frm.set_df_property("get_sales_order", "hidden", 1);
         } else {
             frm.set_df_property("get_sales_order", "hidden", 0);
         }
     },
     get_sales_order(frm) {
-        frappe.prompt([
-            {
-                fieldtype: 'Link',
-                fieldname: 'sales_order',
-                label: __('Sales Order'),
-                options: 'Sales Order',
-                reqd: 1,
-                get_query: function() {
-                    return {
-                        filters: {
-                            docstatus: 1
+        const dialog = new frappe.ui.Dialog({
+            title: __('Select Sales Orders'),
+            fields: [
+                {
+                    fieldname: 'sales_orders',
+                    fieldtype: 'Table',
+                    label: __('Sales Orders'),
+                    cannot_add_rows: false,
+                    cannot_delete_rows: false,
+                    in_place_edit: true,
+                    data: [{}],
+                    get_data: () => [],
+                    fields: [
+                        {
+                            fieldname: 'sales_order',
+                            fieldtype: 'Link',
+                            label: __('Sales Order'),
+                            options: 'Sales Order',
+                            in_list_view: 1,
+                            reqd: 1,
+                            get_query: () => ({
+                                filters: { docstatus: 1 }
+                            })
                         }
-                    };
+                    ]
                 }
-            }
-        ], function(values) {
-            frappe.call({
-                method: "paperware.production.doctype.production_order.production_order.make_production_order",
-                args: {
-                    source_name: values.sales_order
-                },
-                callback: function(r) {
-                    if (r.message) {
-                        var source_doc = r.message;
-                        frm.set_value("sales_order", source_doc.sales_order);
-                        frm.set_value("company", source_doc.company);
-                        frm.set_value("customer_name", source_doc.customer_name);
-                        
-                        frm.clear_table("items");
-                        $.each(source_doc.items, function(i, d) {
-                            var item = frm.add_child("items");
-                            item.item_code = d.item_code;
-                            item.item_name = d.item_name;
-                            item.description = d.description;
-                            item.sales_order = d.sales_order;
-                            item.customer = d.customer;
-                            item.customer_name = d.customer_name;
-                            item.sales_order_qty = d.sales_order_qty;
-                            item.qty_to_produce = d.qty_to_produce;
-                            item.produced_qty = d.produced_qty;
-                            item.uom = d.uom;
-                            item.delivery_date = d.delivery_date;
-                            item.planned_date = d.planned_date;
-                            item.priority_level = d.priority_level;
-                            item.item_status = d.item_status;
-                            item.production_specification = d.production_specification;
-                        });
-                        frm.refresh_field("items");
-                        frm.set_df_property("get_sales_order", "hidden", 1);
+            ],
+            primary_action_label: __('Fetch Items'),
+            primary_action(values) {
+                const rows = values.sales_orders || [];
+                const so_names = rows
+                    .map(r => r.sales_order)
+                    .filter(v => v);
+
+                if (!so_names.length) {
+                    frappe.msgprint(__('Please add at least one Sales Order.'));
+                    return;
+                }
+
+                frappe.call({
+                    method: "paperware.production.doctype.production_order.production_order.get_items_from_sales_orders",
+                    args: { sales_orders: JSON.stringify(so_names) },
+                    callback(r) {
+                        if (r.message) {
+                            const { items, company } = r.message;
+
+                            if (company) frm.set_value("company", company);
+
+                            frm.clear_table("items");
+                            (items || []).forEach(d => {
+                                const row = frm.add_child("items");
+                                row.item_code              = d.item_code;
+                                row.item_name              = d.item_name;
+                                row.description            = d.description;
+                                row.sales_order            = d.sales_order;
+                                row.customer               = d.customer;
+                                row.customer_name          = d.customer_name;
+                                row.sales_order_qty        = d.sales_order_qty;
+                                row.qty_to_produce         = d.qty_to_produce;
+                                row.uom                    = d.uom;
+                                row.delivery_date          = d.delivery_date;
+                                row.priority_level         = d.priority_level || "Medium";
+                                row.item_status            = d.item_status    || "Draft";
+                            });
+
+                            frm.refresh_field("items");
+                            frm.set_df_property("get_sales_order", "hidden", 1);
+                            dialog.hide();
+                        }
                     }
-                }
-            });
-        }, __('Select Sales Order'), __('Get Details'));
+                });
+            }
+        });
+
+        dialog.show();
     }
 });
+

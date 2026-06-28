@@ -35,8 +35,6 @@ def make_production_order(source_name, target_doc=None):
             "Sales Order": {
                 "doctype": "Production Order",
                 "field_map": {
-                    "name": "sales_order",
-                    "customer_name": "customer_name",
                     "company": "company",
                 },
             },
@@ -49,7 +47,7 @@ def make_production_order(source_name, target_doc=None):
                     "qty": "sales_order_qty",
                     "uom": "uom",
                 },
-                "postprocess": lambda source, target: setattr(target, "qty_to_produce", source.qty),
+                "postprocess": lambda source, target, source_parent: setattr(target, "qty_to_produce", source.qty),
             },
         },
         target_doc,
@@ -57,3 +55,38 @@ def make_production_order(source_name, target_doc=None):
     )
 
     return doclist
+
+
+@frappe.whitelist()
+def get_items_from_sales_orders(sales_orders):
+    import json
+
+    if isinstance(sales_orders, str):
+        sales_orders = json.loads(sales_orders)
+
+    all_items = []
+    first_company = None
+
+    for so_name in sales_orders:
+        so = frappe.get_doc("Sales Order", so_name)
+
+        if not first_company:
+            first_company = so.company
+
+        for item in so.items:
+            all_items.append({
+                "sales_order":     so.name,
+                "customer":        so.customer,
+                "customer_name":   so.customer_name,
+                "delivery_date":   str(so.delivery_date) if so.delivery_date else None,
+                "item_code":       item.item_code,
+                "item_name":       item.item_name,
+                "description":     item.description,
+                "sales_order_qty": item.qty,
+                "qty_to_produce":  item.qty,
+                "uom":             item.uom,
+                "priority_level":  "Medium",
+                "item_status":     "Draft",
+            })
+
+    return {"items": all_items, "company": first_company}
