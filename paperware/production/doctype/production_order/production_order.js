@@ -32,7 +32,7 @@ frappe.ui.form.on("Production Order", {
             }
         ], function(values) {
             frappe.call({
-                method: "paperware.paperware.doctype.production_order.production_order.make_production_order",
+                method: "paperware.production.doctype.production_order.production_order.make_production_order",
                 args: {
                     source_name: values.sales_order
                 },

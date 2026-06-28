@@ -2,21 +2,22 @@
     "actions": [],
     "allow_rename": 1,
     "autoname": "naming_series:",
-    "creation": "2024-01-15 00:00:00",
+    "creation": "2026-06-16 12:00:00.000000",
     "doctype": "DocType",
-    "editable_grid": 1,
     "engine": "InnoDB",
     "field_order": [
         "naming_series",
+        "get_sales_order",
         "sales_order",
-        "customer",
+        "date",
         "company",
         "column_break_1",
-        "delivery_date",
-        "planned_date",
-        "production_status",
+        "customer_name",
+        "status",
         "section_break_items",
         "items",
+        "section_break_remarks",
+        "remarks",
         "amended_from"
     ],
     "fields": [
@@ -28,19 +29,24 @@
             "reqd": 1
         },
         {
+            "fieldname": "get_sales_order",
+            "fieldtype": "Button",
+            "label": "Get Sales Order"
+        },
+        {
             "fieldname": "sales_order",
             "fieldtype": "Link",
             "in_list_view": 1,
             "label": "Sales Order",
             "options": "Sales Order",
-            "reqd": 1
+            "read_only": 1
         },
         {
-            "fieldname": "customer",
-            "fieldtype": "Link",
+            "default": "Today",
+            "fieldname": "date",
+            "fieldtype": "Date",
             "in_list_view": 1,
-            "label": "Customer",
-            "options": "Customer",
+            "label": "Date",
             "reqd": 1
         },
         {
@@ -55,36 +61,43 @@
             "fieldtype": "Column Break"
         },
         {
-            "fieldname": "delivery_date",
-            "fieldtype": "Date",
-            "in_list_view": 1,
-            "label": "Delivery Date",
-            "reqd": 1
-        },
-        {
-            "fieldname": "planned_date",
-            "fieldtype": "Date",
-            "label": "Planned Date"
+            "fetch_from": "sales_order.customer_name",
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "label": "Customer Name",
+            "read_only": 1
         },
         {
             "default": "Draft",
-            "fieldname": "production_status",
+            "fieldname": "status",
             "fieldtype": "Select",
             "in_list_view": 1,
-            "label": "Production Status",
-            "options": "Draft\nPlanned\nMaterial_Requested\nMaterial_Issued\nIn_Production\nQC_Pending\nCompleted\nClosed",
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nPending\nIn Progress\nCompleted\nCancelled",
             "reqd": 1
         },
         {
             "fieldname": "section_break_items",
             "fieldtype": "Section Break",
-            "label": "Production Order Items"
+            "label": "Items to Produce"
         },
         {
             "fieldname": "items",
             "fieldtype": "Table",
             "label": "Items",
-            "options": "Production Order Item"
+            "options": "Production Order Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_remarks",
+            "fieldtype": "Section Break",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
         },
         {
             "fieldname": "amended_from",
@@ -99,7 +112,7 @@
     "index_web_pages_for_search": 1,
     "is_submittable": 1,
     "links": [],
-    "modified": "2024-01-15 00:00:00",
+    "modified": "2026-06-16 12:00:00.000000",
     "modified_by": "Administrator",
     "module": "Production",
     "name": "Production Order",
@@ -107,8 +120,6 @@
     "owner": "Administrator",
     "permissions": [
         {
-            "amend": 1,
-            "cancel": 1,
             "create": 1,
             "delete": 1,
             "email": 1,
@@ -119,11 +130,11 @@
             "role": "System Manager",
             "share": 1,
             "submit": 1,
-            "write": 1
+            "write": 1,
+            "cancel": 1,
+            "amend": 1
         },
         {
-            "amend": 1,
-            "cancel": 1,
             "create": 1,
             "delete": 1,
             "email": 1,
@@ -134,10 +145,13 @@
             "role": "Manufacturing Manager",
             "share": 1,
             "submit": 1,
-            "write": 1
+            "write": 1,
+            "cancel": 1,
+            "amend": 1
         },
         {
             "create": 1,
+            "delete": 1,
             "email": 1,
             "export": 1,
             "print": 1,
@@ -145,12 +159,29 @@
             "report": 1,
             "role": "Manufacturing User",
             "share": 1,
-            "write": 1
+            "submit": 1,
+            "write": 1,
+            "cancel": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 1
+        },
+        {
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1
         }
     ],
     "sort_field": "modified",
     "sort_order": "DESC",
     "states": [],
-    "track_changes": 1,
-    "track_seen": 1
+    "track_changes": 1
 }
