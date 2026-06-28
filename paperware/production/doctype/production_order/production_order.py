@@ -48,6 +48,7 @@ def make_production_order(source_name, target_doc=None):
                     "uom": "uom",
                 },
                 "postprocess": lambda source, target, source_parent: setattr(target, "qty_to_produce", source.qty),
+                "condition": lambda doc: doc.is_stock_item == 1,
             },
         },
         target_doc,
@@ -74,6 +75,10 @@ def get_items_from_sales_orders(sales_orders):
             first_company = so.company
 
         for item in so.items:
+            # Skip service items (non-stock items)
+            if not item.is_stock_item:
+                continue
+
             all_items.append({
                 "sales_order":     so.name,
                 "customer":        so.customer,
@@ -90,3 +95,4 @@ def get_items_from_sales_orders(sales_orders):
             })
 
     return {"items": all_items, "company": first_company}
+
