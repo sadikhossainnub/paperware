@@ -21,6 +21,13 @@ class ProductionOrder(Document):
 
 @frappe.whitelist()
 def make_production_order(source_name, target_doc=None):
+    def update_item_fields(source, target):
+        for item in target.items:
+            item.sales_order = source.name
+            item.customer = source.customer
+            item.customer_name = source.customer_name
+            item.delivery_date = source.delivery_date
+
     doclist = get_mapped_doc(
         "Sales Order",
         source_name,
@@ -29,9 +36,7 @@ def make_production_order(source_name, target_doc=None):
                 "doctype": "Production Order",
                 "field_map": {
                     "name": "sales_order",
-                    "customer": "customer",
                     "customer_name": "customer_name",
-                    "delivery_date": "delivery_date",
                     "company": "company",
                 },
             },
@@ -48,6 +53,7 @@ def make_production_order(source_name, target_doc=None):
             },
         },
         target_doc,
+        postprocess=update_item_fields,
     )
 
     return doclist
