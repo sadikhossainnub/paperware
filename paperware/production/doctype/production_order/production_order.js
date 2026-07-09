@@ -15,6 +15,16 @@ frappe.ui.form.on("Production Order", {
                 show_sales_order_dialog(frm);
             }, __('Actions'));
         }
+
+        if (frm.doc.docstatus === 1) {
+            frm.add_custom_button(__('Material Request'), function() {
+                frappe.model.open_mapped_doc({
+                    method: "paperware.production.doctype.production_order.production_order.make_material_request",
+                    frm: frm
+                });
+            }, __('Create'));
+            frm.page.set_inner_btn_group_as_primary(__('Create'));
+        }
     },
 });
 

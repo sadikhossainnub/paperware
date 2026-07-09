@@ -96,3 +96,99 @@ def get_items_from_sales_orders(sales_orders):
 
     return {"items": all_items, "company": first_company}
 
+
+@frappe.whitelist()
+def make_material_request(source_name, target_doc=None):
+    """Create a Material Request from a submitted Production Order."""
+
+    production_order = frappe.get_doc("Production Order", source_name)
+
+    if production_order.docstatus != 1:
+        frappe.throw(_("Material Request can only be created from a submitted Production Order"))
+
+    def set_missing_values(source, target):
+        target.material_request_type = "Purchase"
+        target.schedule_date = source.date
+
+    def update_item(source_item, target_item, source_parent):
+        target_item.qty = source_item.qty_to_produce
+        target_item.schedule_date = source_item.delivery_date or source_parent.date
+        target_item.sales_order = source_item.sales_order
+
+    doclist = get_mapped_doc(
+        "Production Order",
+        source_name,
+        {
+            "Production Order": {
+                "doctype": "Material Request",
+                "field_map": {
+                    "company": "company",
+                },
+                "validation": {
+                    "docstatus": ["=", 1]
+                },
+            },
+            "Production Order Item": {
+                "doctype": "Material Request Item",
+                "field_map": {
+                    "item_code": "item_code",
+                    "item_name": "item_name",
+                    "description": "description",
+                    "uom": "uom",
+                    "qty_to_produce": "qty",
+                },
+                "postprocess": update_item,
+            },
+        },
+        target_doc,
+        postprocess=set_missing_values,
+    )
+
+    return doclist
+
+
+def auto_create_production_order(doc, method):
+    """Automatically create a Production Order when a Sales Order is submitted."""
+
+    # Check if there are any stock items in the Sales Order
+    stock_items = [item for item in doc.items if item.is_stock_item]
+    if not stock_items:
+        return
+
+    # Check if a Production Order already exists for this Sales Order
+    existing = frappe.db.exists("Production Order Item", {"sales_order": doc.name})
+    if existing:
+        return
+
+    po = frappe.new_doc("Production Order")
+    po.company = doc.company
+    po.date = frappe.utils.today()
+    po.status = "Pending"
+
+    for item in stock_items:
+        po.append("items", {
+            "item_code":       item.item_code,
+            "item_name":       item.item_name,
+            "description":     item.description,
+            "sales_order":     doc.name,
+            "customer":        doc.customer,
+            "customer_name":   doc.customer_name,
+            "delivery_date":   doc.delivery_date,
+            "sales_order_qty": item.qty,
+            "qty_to_produce":  item.qty,
+            "uom":             item.uom,
+            "priority_level":  "Medium",
+            "item_status":     "Draft",
+        })
+
+    po.flags.ignore_permissions = True
+    po.insert()
+    po.submit()
+
+    frappe.msgprint(
+        _("Production Order {0} created automatically").format(
+            frappe.utils.get_link_to_form("Production Order", po.name)
+        ),
+        alert=True,
+        indicator="green",
+    )

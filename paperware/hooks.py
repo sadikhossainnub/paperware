@@ -140,11 +140,11 @@ doctype_js = {
 
 # Hook on document methods and events
 
-# doc_events = {
-# 	"Pre Costing Order": {
-# 		"on_submit": "paperware.pre_costing.api.utils.on_pre_costing_submit"
-# 	}
-# }
+doc_events = {
+	"Sales Order": {
+		"on_submit": "paperware.production.doctype.production_order.production_order.auto_create_production_order"
+	}
+}
 
 scheduler_events = {
 	"cron": {
