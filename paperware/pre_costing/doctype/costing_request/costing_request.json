@@ -9,6 +9,7 @@
     "field_order": [
         "naming_series",
         "customer",
+        "item",
         "request_date",
         "company",
         "column_break_1",
@@ -62,6 +63,12 @@
             "label": "Customer",
             "options": "Customer",
             "reqd": 1
+        },
+        {
+            "fieldname": "item",
+            "fieldtype": "Link",
+            "label": "Item",
+            "options": "Item"
         },
         {
             "default": "Today",

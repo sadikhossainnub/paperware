@@ -18,6 +18,46 @@ class ProductionOrder(Document):
                     _("Quantity to produce for item {0} must be greater than 0").format(item.item_code)
                 )
 
+    def on_update(self):
+        self.sync_delivery_date_to_sales_orders()
+
+    def on_submit(self):
+        self.sync_delivery_date_to_sales_orders()
+
+    def sync_delivery_date_to_sales_orders(self):
+        """Update delivery_date on all linked Sales Orders when it changes."""
+        if not self.delivery_date:
+            return
+
+        # Collect unique Sales Orders linked via items table
+        sales_orders = list(set(
+            item.sales_order for item in self.items if item.get("sales_order")
+        ))
+
+        if not sales_orders:
+            return
+
+        updated = []
+        for so_name in sales_orders:
+            current_date = frappe.db.get_value("Sales Order", so_name, "delivery_date")
+            if str(current_date) != str(self.delivery_date):
+                frappe.db.set_value(
+                    "Sales Order", so_name, "delivery_date", self.delivery_date
+                )
+                updated.append(so_name)
+
+        if updated:
+            frappe.msgprint(
+                _("Delivery date updated on Sales Order(s): {0}").format(
+                    ", ".join(
+                        frappe.utils.get_link_to_form("Sales Order", so)
+                        for so in updated
+                    )
+                ),
+                alert=True,
+                indicator="blue",
+            )
+
 
 @frappe.whitelist()
 def make_production_order(source_name, target_doc=None):

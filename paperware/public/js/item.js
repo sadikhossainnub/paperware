@@ -9,6 +9,40 @@ frappe.ui.form.on('Item', {
                     }
                 });
             }
+
+            frm.add_custom_button(__('Costing Request'), function () {
+                frappe.model.with_doctype('Costing Request', function() {
+                    let new_doc = frappe.model.get_new_doc('Costing Request');
+                    new_doc.customer = frm.doc.customer || '';
+                    new_doc.item = frm.doc.name;
+                    new_doc.product_description = frm.doc.item_name || '';
+                    
+                    // Map product_type
+                    if (frm.doc.paper_cup_wall) {
+                        if (frm.doc.paper_cup_wall.includes("Single")) {
+                            new_doc.product_type = "Single Wall";
+                        } else if (frm.doc.paper_cup_wall.includes("Double")) {
+                            new_doc.product_type = "Double Wall";
+                        }
+                    }
+
+                    // Map specifications
+                    if (frm.doc.paper_height_mm) {
+                        new_doc.height_mm = frm.doc.paper_height_mm;
+                    }
+
+                    // Map material type
+                    if (frm.doc.item_type) {
+                        if (frm.doc.item_type.toLowerCase().includes("plastic")) {
+                            new_doc.material_type = "Plastic";
+                        } else {
+                            new_doc.material_type = "Paper";
+                        }
+                    }
+
+                    frappe.set_route('Form', 'Costing Request', new_doc.name);
+                });
+            }, __('Create'));
         }
     },
     before_save: async function (frm) {

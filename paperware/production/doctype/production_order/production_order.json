@@ -8,9 +8,11 @@
  "field_order": [
   "naming_series",
   "company",
+  "customer",
   "column_break_1",
   "date",
   "status",
+  "delivery_date",
   "section_break_items",
   "items",
   "section_break_remarks",
@@ -41,6 +43,13 @@
    "reqd": 1
   },
   {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
    "fieldname": "column_break_1",
    "fieldtype": "Column Break"
   },
@@ -53,6 +62,12 @@
    "label": "Status",
    "options": "Draft\nPending\nIn Progress\nCompleted\nCancelled",
    "reqd": 1
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Delivery Date"
   },
   {
    "fieldname": "section_break_items",
@@ -88,13 +103,7 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [
-  {
-   "group": "Material Request",
-   "link_doctype": "Material Request",
-   "link_fieldname": "production_order"
-  }
- ],
+ "links": [],
  "modified": "2026-06-28 14:52:18.934572",
  "modified_by": "Administrator",
  "module": "Production",
