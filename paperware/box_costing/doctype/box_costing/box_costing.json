@@ -1,0 +1,244 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-07-26 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "item_code",
+        "item_name",
+        "costing_date",
+        "column_break_header",
+        "client_name",
+        "uom",
+        "qty",
+        "section_paper",
+        "paper_type",
+        "gsm",
+        "sheet_size",
+        "column_break_paper",
+        "cutting_size_w",
+        "cutting_size_h",
+        "cutting_size_l",
+        "paper_rate_per_sheet",
+        "pcs_per_sheet",
+        "total_sheets",
+        "section_items",
+        "items",
+        "section_summary",
+        "total_amount",
+        "production_rate",
+        "column_break_summary",
+        "margin_percent",
+        "margin_amount",
+        "final_rate"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "BC-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "item_code",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Item Code",
+            "options": "Item",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "fetch_from": "item_code.item_name",
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Item Name",
+            "read_only": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "costing_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Costing Date"
+        },
+        {
+            "fieldname": "column_break_header",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "client_name",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Client Name",
+            "options": "Customer"
+        },
+        {
+            "fetch_from": "item_code.stock_uom",
+            "fieldname": "uom",
+            "fieldtype": "Link",
+            "label": "UOM",
+            "options": "UOM",
+            "default": "Nos"
+        },
+        {
+            "fieldname": "qty",
+            "fieldtype": "Int",
+            "label": "Order Qty (Pcs)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_paper",
+            "fieldtype": "Section Break",
+            "label": "Paper & Sheet Details"
+        },
+        {
+            "fieldname": "paper_type",
+            "fieldtype": "Link",
+            "label": "Paper Type",
+            "options": "Item"
+        },
+        {
+            "fieldname": "gsm",
+            "fieldtype": "Int",
+            "label": "GSM"
+        },
+        {
+            "fieldname": "sheet_size",
+            "fieldtype": "Data",
+            "label": "Sheet Size (e.g. 28x44)"
+        },
+        {
+            "fieldname": "column_break_paper",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "cutting_size_w",
+            "fieldtype": "Float",
+            "label": "Cutting Size W (inch)"
+        },
+        {
+            "fieldname": "cutting_size_h",
+            "fieldtype": "Float",
+            "label": "Cutting Size H (inch)"
+        },
+        {
+            "fieldname": "cutting_size_l",
+            "fieldtype": "Float",
+            "label": "Cutting Size L (inch)"
+        },
+        {
+            "fieldname": "paper_rate_per_sheet",
+            "fieldtype": "Currency",
+            "label": "Paper Rate per Sheet"
+        },
+        {
+            "fieldname": "pcs_per_sheet",
+            "fieldtype": "Int",
+            "label": "Pcs per Sheet"
+        },
+        {
+            "fieldname": "total_sheets",
+            "fieldtype": "Int",
+            "label": "Total Sheets",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_items",
+            "fieldtype": "Section Break",
+            "label": "Cost Items"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Cost Items",
+            "options": "Box Costing Item"
+        },
+        {
+            "fieldname": "section_summary",
+            "fieldtype": "Section Break",
+            "label": "Cost Summary"
+        },
+        {
+            "fieldname": "total_amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "production_rate",
+            "fieldtype": "Currency",
+            "label": "Production Rate / Pc",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_summary",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "25",
+            "fieldname": "margin_percent",
+            "fieldtype": "Float",
+            "label": "Margin %"
+        },
+        {
+            "fieldname": "margin_amount",
+            "fieldtype": "Currency",
+            "label": "Margin Amount / Pc",
+            "read_only": 1
+        },
+        {
+            "fieldname": "final_rate",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Final Rate / Pc",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2026-07-26 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Box Costing",
+    "name": "Box Costing",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Paperware Costing Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

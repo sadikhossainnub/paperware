@@ -76,6 +76,8 @@ def make_production_order(source_name, target_doc=None):
                 "doctype": "Production Order",
                 "field_map": {
                     "company": "company",
+                    "customer": "customer",
+                    "delivery_date": "delivery_date",
                 },
             },
             "Sales Order Item": {
@@ -202,7 +204,9 @@ def auto_create_production_order(doc, method):
 
     po = frappe.new_doc("Production Order")
     po.company = doc.company
+    po.customer = doc.customer
     po.date = frappe.utils.today()
+    po.delivery_date = doc.delivery_date
     po.status = "Pending"
 
     for item in stock_items:

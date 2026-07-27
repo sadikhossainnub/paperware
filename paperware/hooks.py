@@ -236,6 +236,8 @@ scheduler_events = {
 # ignore_translatable_strings_from = []
 
 fixtures = [
-    {"dt": "Custom Field", "filters": [["dt", "in", ["Item", "Customer", "Quotation", "Sales Order", "Sales Invoice", "Delivery Note", "Payment Entry", "Quotation Item"]]]}
+    {"dt": "Custom Field", "filters": [["dt", "in", ["Item", "Customer", "Quotation", "Sales Order", "Sales Invoice", "Delivery Note", "Payment Entry", "Quotation Item"]]]},
+    {"dt": "Role", "filters": [["role_name", "in", ["Paperware Costing Manager"]]]},
+    {"dt": "Print Format", "filters": [["name", "in", ["Box Costing Slip"]]]}
 ]
 

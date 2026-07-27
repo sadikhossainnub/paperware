@@ -1,0 +1,9 @@
+[
+    {
+        "doctype": "Role",
+        "name": "Paperware Costing Manager",
+        "role_name": "Paperware Costing Manager",
+        "desk_access": 1,
+        "disabled": 0
+    }
+]

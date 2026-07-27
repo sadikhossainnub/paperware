@@ -1,0 +1,64 @@
+{
+    "actions": [],
+    "creation": "2026-07-26 00:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "description",
+        "formula_note",
+        "rate",
+        "multiplier",
+        "amount"
+    ],
+    "fields": [
+        {
+            "fieldname": "description",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Description",
+            "options": "Paper\nPrinting Plate\nPrinting\nLamination Matt Front\nLamination Glue Back\nLamination UV\nSpot\nDie Making\nDie Cutting\nPasting\nPacking\nTravel\nOther",
+            "reqd": 1
+        },
+        {
+            "fieldname": "formula_note",
+            "fieldtype": "Small Text",
+            "in_list_view": 0,
+            "label": "Formula / Note"
+        },
+        {
+            "fieldname": "rate",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Rate",
+            "reqd": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "multiplier",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Multiplier"
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Amount",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "istable": 1,
+    "links": [],
+    "modified": "2026-07-26 00:00:00",
+    "modified_by": "Administrator",
+    "module": "Box Costing",
+    "name": "Box Costing Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}
