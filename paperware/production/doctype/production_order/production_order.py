@@ -61,6 +61,25 @@ class ProductionOrder(Document):
 
 @frappe.whitelist()
 def make_production_order(source_name, target_doc=None):
+    # Block if an active (non-cancelled) Production Order already exists for this Sales Order
+    existing_po = frappe.db.get_value(
+        "Production Order Item",
+        {"sales_order": source_name},
+        "parent",
+        order_by="creation desc",
+    )
+    if existing_po:
+        po_docstatus = frappe.db.get_value("Production Order", existing_po, "docstatus")
+        if po_docstatus != 2:  # 2 = Cancelled
+            frappe.throw(
+                _("A Production Order {0} already exists for Sales Order {1}. "
+                  "Cancel it first before creating a new one.").format(
+                    frappe.utils.get_link_to_form("Production Order", existing_po),
+                    frappe.utils.get_link_to_form("Sales Order", source_name),
+                ),
+                title=_("Duplicate Production Order"),
+            )
+
     def update_item_fields(source, target):
         for item in target.items:
             item.sales_order = source.name
@@ -197,10 +216,18 @@ def auto_create_production_order(doc, method):
     if not stock_items:
         return
 
-    # Check if a Production Order already exists for this Sales Order
-    existing = frappe.db.exists("Production Order Item", {"sales_order": doc.name})
-    if existing:
-        return
+    # Block if an active (non-cancelled) Production Order already exists for this Sales Order
+    existing_item = frappe.db.get_value(
+        "Production Order Item",
+        {"sales_order": doc.name},
+        ["parent"],
+        order_by="creation desc",
+        as_dict=True,
+    )
+    if existing_item:
+        po_docstatus = frappe.db.get_value("Production Order", existing_item.parent, "docstatus")
+        if po_docstatus != 2:  # 2 = Cancelled
+            return
 
     po = frappe.new_doc("Production Order")
     po.company = doc.company
