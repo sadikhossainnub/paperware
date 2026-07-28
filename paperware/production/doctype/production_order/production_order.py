@@ -19,10 +19,46 @@ class ProductionOrder(Document):
                 )
 
     def on_update(self):
+        self.update_status()
         self.sync_delivery_date_to_sales_orders()
 
     def on_submit(self):
+        self.update_status()
         self.sync_delivery_date_to_sales_orders()
+
+    def update_status(self):
+        """
+        Auto-calculate and set Production Order status based on item_status
+        of all child items.
+
+        Rules:
+          - docstatus == 2 (Cancelled)  → "Cancelled"  (never overwrite)
+          - all items Draft             → "Pending"
+          - all items Completed         → "Completed"
+          - any item Failed             → "In Progress"
+          - any item In Progress /
+            QC Pending / Planned       → "In Progress"
+          - mix of Completed + others  → "In Progress"
+        """
+        if self.docstatus == 2:
+            # Already cancelled — don't touch
+            return
+
+        if not self.items:
+            return
+
+        statuses = {item.item_status for item in self.items}
+
+        if statuses <= {"Draft"}:
+            new_status = "Pending"
+        elif statuses <= {"Completed"}:
+            new_status = "Completed"
+        else:
+            new_status = "In Progress"
+
+        if self.status != new_status:
+            # Use db_set to avoid triggering recursive on_update
+            self.db_set("status", new_status, notify=True, commit=False)
 
     def sync_delivery_date_to_sales_orders(self):
         """Update delivery_date on all linked Sales Orders when it changes."""
@@ -57,6 +93,28 @@ class ProductionOrder(Document):
                 alert=True,
                 indicator="blue",
             )
+
+
+@frappe.whitelist()
+def update_item_status(production_order, row_name, item_status):
+    """
+    Update a single Production Order Item's status and
+    recalculate the parent Production Order status.
+    Called from the frontend when a user changes item_status in the child table.
+    """
+    # Validate allowed values
+    allowed = {"Draft", "Planned", "In Progress", "QC Pending", "Completed", "Failed"}
+    if item_status not in allowed:
+        frappe.throw(_("Invalid item status: {0}").format(item_status))
+
+    # Update the child row directly
+    frappe.db.set_value("Production Order Item", row_name, "item_status", item_status)
+
+    # Reload the parent and recalculate status
+    po = frappe.get_doc("Production Order", production_order)
+    po.update_status()
+
+    return po.status
 
 
 @frappe.whitelist()
